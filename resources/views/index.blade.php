@@ -161,7 +161,7 @@
                                 <!-- <li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">Testimonial</a></li>-->
                                 <li class="menu-item"><a class="menu-link" href="#" data-href="#myphoto">My Photo</a></li>
                                 <li class="menu-item">
-                                    <a a href="#" data-href="#mypost"  data-offset="62" data-easing="easeInOutExpo" data-speed="1300" class="button button-color reverse"><i class="icon-calendar2"></i> Nella's Post</a>
+                                    <a href="{{ url('/liststory') }}"   data-offset="62" data-easing="easeInOutExpo" data-speed="1300" class="button button-color reverse"><i class="icon-calendar2"></i> Nella's Story</a>
                                 </li>
                             </ul>
 
@@ -254,7 +254,7 @@
                         <div class="row clearfix">
                             <div class="col-md-3 col-6 d-none d-md-block">
                                 <img src="{{asset('res/newimage/gedung.jpeg')}}" alt="Image">
-                             
+                              
                                 <img src="{{asset('res/newimage/sunset.jpeg')}}" alt="Image" style = "margin-top:20px;">
                             </div>
                             <div class="col-md-6 col-12 center" style="padding: 0 50px;">
