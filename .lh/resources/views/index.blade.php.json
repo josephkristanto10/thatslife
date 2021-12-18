@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 204,
+            "activePatchIndex": 205,
             "patches": [
                 {
                     "date": 1638263505512,
@@ -824,6 +824,10 @@
                 {
                     "date": 1639826893306,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -253,9 +253,9 @@\n                     <div class=\"container clearfix\">\r\n                         <div class=\"row clearfix\">\r\n                             <div class=\"col-md-3 col-6 d-none d-md-block\">\r\n                                 <img src=\"{{asset('res/newimage/gedung.jpeg')}}\" alt=\"Image\">\r\n-                             \r\n+                              \r\n                                 <img src=\"{{asset('res/newimage/sunset.jpeg')}}\" alt=\"Image\" style = \"margin-top:20px;\">\r\n                             </div>\r\n                             <div class=\"col-md-6 col-12 center\" style=\"padding: 0 50px;\">\r\n                                 <img src=\"{{asset('res/demos/barber/images/icons/cs.svg')}}\" alt=\"Image\" height=\"60\" style=\"margin-bottom: 20px\">\r\n"
+                },
+                {
+                    "date": 1639827556111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     <meta name=\"author\" content=\"SemiColonWeb\" />\r\n \r\n     <!-- Stylesheets\r\n \t============================================= -->\r\n-    <link href=\"{{asset('res/myfont.css?family=PT+Sans+Caption:400,700|PT+Sans:400,700|PT+Serif:400,400i&display=swap')}}\" rel=\"stylesheet\" type=\"text/css\" />\r\n+    <!-- <link href=\"{{asset('res/myfont.css?family=PT+Sans+Caption:400,700|PT+Sans:400,700|PT+Serif:400,400i&display=swap')}}\" rel=\"stylesheet\" type=\"text/css\" /> -->\r\n     <link rel=\"stylesheet\" href=\"{{asset('res/css/bootstrap.css')}}\" type=\"text/css\" />\r\n     <link rel=\"stylesheet\" href=\"{{asset('res/style.css')}}\" type=\"text/css\" />\r\n     <!-- <link rel=\"stylesheet\" href=\"{{asset('res/css/dark.css')}}\" type=\"text/css\" /> -->\r\n \r\n"
                 }
             ],
             "date": 1638263505512,

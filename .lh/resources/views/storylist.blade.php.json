@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 88,
+            "activePatchIndex": 89,
             "patches": [
                 {
                     "date": 1639803735228,
@@ -360,6 +360,10 @@
                 {
                     "date": 1639827267146,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     <title>Nella Life Story</title>\r\n \r\n     <style>\r\n         #about :after{\r\n-            \r\n+            margin:10px auto 0;\r\n         }\r\n         .card{\r\n             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;\r\n         }\r\n"
+                },
+                {
+                    "date": 1639827452108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,11 @@\n     <meta name=\"author\" content=\"SemiColonWeb\" />\r\n \r\n     <!-- Stylesheets\r\n \t============================================= -->\r\n-    <link\r\n+    <!-- <link\r\n         href=\"{{asset('res/myfont.css?family=PT+Sans+Caption:400,700|PT+Sans:400,700|PT+Serif:400,400i&display=swap')}}\"\r\n-        rel=\"stylesheet\" type=\"text/css\" />\r\n+        rel=\"stylesheet\" type=\"text/css\" /> -->\r\n     <link rel=\"stylesheet\" href=\"{{asset('res/css/bootstrap.css')}}\" type=\"text/css\" />\r\n     <link rel=\"stylesheet\" href=\"{{asset('res/style.css')}}\" type=\"text/css\" />\r\n     <!-- <link rel=\"stylesheet\" href=\"{{asset('res/css/dark.css')}}\" type=\"text/css\" /> -->\r\n \r\n"
                 }
             ],
             "date": 1639803735228,

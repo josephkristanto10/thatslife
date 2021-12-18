@@ -8,7 +8,7 @@
 
     <!-- Stylesheets
 	============================================= -->
-    <link href="{{asset('res/myfont.css?family=PT+Sans+Caption:400,700|PT+Sans:400,700|PT+Serif:400,400i&display=swap')}}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{{asset('res/myfont.css?family=PT+Sans+Caption:400,700|PT+Sans:400,700|PT+Serif:400,400i&display=swap')}}" rel="stylesheet" type="text/css" /> -->
     <link rel="stylesheet" href="{{asset('res/css/bootstrap.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('res/style.css')}}" type="text/css" />
     <!-- <link rel="stylesheet" href="{{asset('res/css/dark.css')}}" type="text/css" /> -->
