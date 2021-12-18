@@ -34,6 +34,34 @@
     <title>Nella Life Story</title>
 
     <style>
+
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
         /* Page Loading Style */
         
         .css3-spinner {
@@ -96,7 +124,7 @@
 
 </head>
 
-<body class="stretched page-transition" data-loader-html="<img class='infinite animated pulse' src='res/demos/barber/images/slider-logo.svg' width='300'>">
+<body class="stretched page-transition" data-loader-html="<img class='infinite animated pulse' src='res/newimage/mylogo.png' width='300'>">
 
     <!-- Document Wrapper
 	============================================= -->
@@ -128,12 +156,12 @@
                             <ul class="menu-container one-page-menu" data-easing="easeInOutExpo" data-speed="1300" data-offset="60">
                                 <li class="menu-item active"><a class="menu-link" href="#" data-href="#wrapper">Home</a></li>
                                 <li class="menu-item"><a class="menu-link" href="#" data-offset="56" data-href="#about">About Me</a></li>
-                                <li class="menu-item"><a class="menu-link" href="#" data-href="#mypost">My Post</a></li>
+                                <!-- <li class="menu-item"><a class="menu-link" href="#" data-href="#mypost">My Post</a></li> -->
                                 <li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">My Quote</a></li>
                                 <!-- <li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">Testimonial</a></li>-->
                                 <li class="menu-item"><a class="menu-link" href="#" data-href="#myphoto">My Photo</a></li>
                                 <li class="menu-item">
-                                    <a href="#" data-scrollto="#contact" data-offset="62" data-easing="easeInOutExpo" data-speed="1300" class="button button-color reverse"><i class="icon-calendar2"></i> Appoinment</a>
+                                    <a a href="#" data-href="#mypost"  data-offset="62" data-easing="easeInOutExpo" data-speed="1300" class="button button-color reverse"><i class="icon-calendar2"></i> Nella's Post</a>
                                 </li>
                             </ul>
 
@@ -225,19 +253,28 @@
                     <div class="container clearfix">
                         <div class="row clearfix">
                             <div class="col-md-3 col-6 d-none d-md-block">
-                                <img src="{{asset('res/newimage/wayang.jpeg')}}" alt="Image">
+                                <img src="{{asset('res/newimage/gedung.jpeg')}}" alt="Image">
+                             
+                                <img src="{{asset('res/newimage/sunset.jpeg')}}" alt="Image" style = "margin-top:20px;">
                             </div>
                             <div class="col-md-6 col-12 center" style="padding: 0 50px;">
                                 <img src="{{asset('res/demos/barber/images/icons/cs.svg')}}" alt="Image" height="60" style="margin-bottom: 20px">
                                 <div class="heading-block bottommargin-sm">
                                     <h2>About Me</h2>
                                 </div>
-                                <p>Authoritatively communicate world-class alignments before low-risk high-yield growth strategies. Synergistically envisioneer transparent niches after dynamic "outside the box" thinking. Uniquely implement cutting-edge partnerships
-                                    before synergistic niche markets.</p>
-                                <img src="{{asset('res/demos/barber/images/about/sign.png')}}" alt="Image" width="200">
+                                <p style = "  text-align: justify;">Hi guys! You can call me Nella. I love travel, book, music, movie, art and I love reading and writing too. In 2021, I will start continue writing my personal blog and With my blog "That's Life" I want to share story of my life, people life and maybe your life too. So keep reading and hope you will enjoy it.
+<br><br>
+<center>
+<span style = "font-size:20px; text-align: center !important;" >Kiss Kiss From </span><br><h3 style = "font-size:25px;">Nella</h3>
+    </center>
+</p>
+
+                                <!-- <img src="{{asset('res/demos/barber/images/about/sign.png')}}" alt="Image" width="200"> -->
                             </div>
                             <div class="col-md-3 col-6 d-none d-md-block">
-                                <img src="{{asset('res/demos/barber/images/about/2.jpg')}}" alt="Image">
+                            <img src="{{asset('res/newimage/fotoaboutme3.jpeg')}}" alt="Image">
+                             
+                             <!-- <img src="{{asset('res/newimage/fotoaboutme1.jpg')}}" alt="Image" style = "margin-top:20px;"> -->
                             </div>
                         </div>
                     </div>
@@ -335,14 +372,14 @@
                             <div class="col-md-4 center bottommargin-lg">
                                 <div class="feature-box media-box">
                                     <div class="fbox-media" style="padding: 0 40px;">
-                                        <a href="#"><img class="rounded-circle img-thumbnail" src="{{asset('res/demos/barber/images/features/shave.jpg')}}" alt="Why choose Us?"><span>Shave</span>
-                                            <div class="sale-flash badge badge-warning py-2 px-3 rounded-0">Latest Story</div>
+                                        <a href="#"><img class="rounded-circle img-thumbnail" src="{{asset('res/newimage/thumbnail1.jpg')}}" style = "height:250px;" alt="Why choose Us?">
+                                            <div class="sale-flash badge badge-warning py-2 px-3 rounded-0">Best Story</div>
                                         </a>
                                     </div>
                                     <div class="fbox-content">
-                                        <h3><span class="ls0 subtitle font-primary" style="color:rgba(201, 159, 32, 0.824);font-weight: 800;">Vintage Story.</span></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
-                                        <a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;color:rgb(70, 68, 68);border-bottom:1px solid rgb(106, 103, 103) !important">Read More</a>
+                                        <h3><span class="ls0 subtitle font-primary" style="color:#cc8c2d;font-weight: 800;">Vintage Story.</span></h3>
+                                        <p>I will tell you about me exploring some historical place in the world, traditional culture, habbit, or historical heritage.</p>
+                                        <!-- <a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;color:rgb(70, 68, 68);border-bottom:1px solid rgb(106, 103, 103) !important">Read More</a> -->
                                     </div>
                                 </div>
                             </div>
@@ -352,12 +389,12 @@
                             <div class="col-md-4 center bottommargin-lg">
                                 <div class="feature-box media-box">
                                     <div class="fbox-media" style="padding: 0 40px;">
-                                        <a href="#"><img class="rounded-circle img-thumbnail" src="{{asset('res/demos/barber/images/features/haircut.jpg')}}" alt="Effective Planning"><span>Haircut</span></a>
+                                        <a href="#"><img class="rounded-circle img-thumbnail" src="{{asset('res/newimage/inspire.jpg')}}" style = "height:250px !important;"  alt="Effective Planning"><span></span></a>
                                     </div>
                                     <div class="fbox-content">
-                                        <h3><span class="ls0 subtitle font-primary" style="color:rgba(201, 159, 32, 0.824);font-weight: 800;">Inspirational Story.</span></h3>
-                                        <p>Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse.</p>
-                                        <a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;color:rgb(70, 68, 68);border-bottom:1px solid rgb(106, 103, 103) !important">Read More</a>
+                                        <h3><span class="ls0 subtitle font-primary" style="color:#cc8c2d;font-weight: 800;">Inspirational Story.</span></h3>
+                                        <p>Not only exploring some places, i will tell you too about some of my inspiring story, maybe about my journey .</p>
+                                        <!-- <a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;color:rgb(70, 68, 68);border-bottom:1px solid rgb(106, 103, 103) !important">Read More</a> -->
                                     </div>
                                 </div>
                             </div>
@@ -367,12 +404,12 @@
                             <div class="col-md-4 center bottommargin-lg">
                                 <div class="feature-box media-box">
                                     <div class="fbox-media" style="padding: 0 40px;">
-                                        <a href="#"><img class="rounded-circle img-thumbnail" src="{{asset('res/demos/barber/images/features/hairwash.jpg')}}" alt="Why choose Us?"><span>Hairwash</span></a>
+                                        <a href="#"><img class="rounded-circle img-thumbnail" src="{{asset('res/newimage/travel.jpg')}}" style = "height:250px !important;" alt="Why choose Us?"><span></span></a>
                                     </div>
                                     <div class="fbox-content">
-                                        <h3><span class="ls0 subtitle font-primary" style="color:rgba(201, 159, 32, 0.824);font-weight: 800;">Travelling Story.</span></h3>
-                                        <p>Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum quo.</p>
-                                        <a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;color:rgb(70, 68, 68);border-bottom:1px solid rgb(106, 103, 103) !important">Read More</a>
+                                        <h3><span class="ls0 subtitle font-primary" style="color:#cc8c2d;font-weight: 800;">Travelling Story.</span></h3>
+                                        <p>This is the most amazing part in this story, i will tell you about my experience exploring some modernistic and trending places.</p>
+                                        <!-- <a href="#" class="more-link text-uppercase ls1 font-weight-bold" style="margin: 20px 0 0 0; font-style: normal;color:rgb(70, 68, 68);border-bottom:1px solid rgb(106, 103, 103) !important">Read More</a> -->
                                     </div>
                                 </div>
                             </div>
@@ -602,12 +639,12 @@
 
                 <!-- Testimonial Page Section
 				============================================= -->
-                <div id="testimonial" class="section page-section parallax pb-0 dark clearfix" style="background-image: url('res/demos/barber/images/sections/2.jpg'); background-size: cover;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
+                <div id="testimonial" class="section page-section parallax pb-0 dark clearfix" style="background-image: url('res/newimage/quotes.jpg'); background-size: cover;" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;">
                     <div class="container clearfix">
 
                         <div class="heading-block center">
                             <img src="{{asset('res/demos/barber/images/icons/stars.svg')}}" alt="Image" height="50" style="margin-bottom: 20px">
-                            <h3 class="ls2" style="color:#bF9456;">Testimonials</h3>
+                            <h3 class="ls2" style="color:#bF9456;">Nella's Favourite Quotes</h3>
                         </div>
 
                         <!-- Testimonial Slider
@@ -729,7 +766,7 @@
                                                         <i class="icon-instagram"></i>
                                                     </a>
                                                 </div>
-                                                <a href="#" class="button button-large button-color m-0 w-100 text-center" data-hover-animate="fadeInDown" data-hover-animate-out="fadeOutUp" data-hover-speed="400" data-hover-parent=".team">Appointment</a>
+                                                <a a href="#" data-href="#mypost" class="button button-large button-color m-0 w-100 text-center" data-hover-animate="fadeInDown" data-hover-animate-out="fadeOutUp" data-hover-speed="400" data-hover-parent=".team">My Post</a>
                                             </div>
                                             <div class="bg-overlay-bg dark" data-hover-animate="fadeIn" data-hover-speed="400" data-hover-parent=".team"></div>
                                         </div>
@@ -816,7 +853,7 @@
 
                 <!-- Contact Page Section
 				============================================= -->
-                <div id="contact" class="row align-items-stretch page-section pt-0 clearfix">
+                <!-- <div id="contact" class="row align-items-stretch page-section pt-0 clearfix">
 
                     <div class="col-lg-6 px-0 d-none d-md-block">
                         <div class="gmap h-100" data-address="Ibiza, Spain" data-zoom="5" data-markers='[{ address: "Ibiza, Spain", icon:{ image: "res/demos/barber/images/map-marker.png", iconsize: [32, 39], iconanchor: [16,36] } }]' data-styles='[{"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#000000"},{"lightness":40}]},{"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#000000"},{"lightness":16}]},{"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":17},{"weight":1.2}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":20}]},{"featureType":"poi","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":21}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#000000"},{"lightness":17}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#000000"},{"lightness":29},{"weight":0.2}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":18}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":16}]},{"featureType":"transit","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":19}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#000000"},{"lightness":17}]}]'></div>
@@ -893,11 +930,11 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
 
                 <a href="#" class="button button-full bg-color font-secondary center" style="padding: 60px 0; background-image: url('res/demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;">
                     <div class="container clearfix">
-                        Book your visit online and save upto <strong>25% Discount</strong> &rarr;
+                        This is a Nella's Journey Story  &rarr;
                     </div>
                 </a>
 
@@ -911,11 +948,11 @@
 
             <div class="container clearfix">
 
-                <!-- Footer Widgets
+                <!-- Footer Widget
 				============================================= -->
                 <div class="footer-widgets-wrap center clearfix">
 
-                    <img src="{{asset('res/demos/barber/images/slider-logo.svg')}}" width="200" alt="Image">
+                    <img src="{{asset('res/newimage/mylogo.png')}}" width="350" height="100" alt="Image">
 
                     <div class="topmargin-lg clearfix">
                         <a href="#" class="social-icon si-small si-rounded si-borderless inline-block si-facebook">
@@ -949,7 +986,7 @@
                         </a>
                     </div>
 
-                    <div class="text-uppercase ls3" style="color: #333; margin-top: 10px">&copy; Canvas Inc. 2021. All Rights Reserved.</div>
+                    <div class="text-uppercase ls3" style="color: #333; margin-top: 10px">&copy; Nella's Production.</div>
 
                 </div>
 
@@ -978,3 +1015,17 @@
 </body>
 
 </html>
+<script>
+    var i = 0;
+    var txt = 'Kiss Kiss From <br><h3>Nella</h3>';
+    var speed = 250;
+    function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("animation").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+};
+
+
+</script>
