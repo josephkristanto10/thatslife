@@ -1,0 +1,54 @@
+{
+    "sourceFile": "database/migrations/2021_12_18_123750_story_migration.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1639831089242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639831098005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n      * @return void\n      */\n     public function up()\n     {\n-        Schema::create('users', function (Blueprint $table) {\n+        Schema::create('story', function (Blueprint $table) {\n             $table->id();\n             $table->string('name');\n             $table->string('email')->unique();\n             $table->timestamp('email_verified_at')->nullable();\n@@ -30,7 +30,7 @@\n      * @return void\n      */\n     public function down()\n     {\n-        //\n+        Schema::dropIfExists('users');\n     }\n }\n"
+                },
+                {
+                    "date": 1639831158487,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,11 +14,10 @@\n     public function up()\n     {\n         Schema::create('story', function (Blueprint $table) {\n             $table->id();\n-            $table->string('name');\n-            $table->string('email')->unique();\n-            $table->timestamp('email_verified_at')->nullable();\n+            $table->string('title');\n+            $table->string('description');\n             $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n@@ -30,7 +29,7 @@\n      * @return void\n      */\n     public function down()\n     {\n-        Schema::dropIfExists('users');\n+        Schema::dropIfExists('story');\n     }\n }\n"
+                },
+                {
+                    "date": 1639831183756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n         Schema::create('story', function (Blueprint $table) {\n             $table->id();\n             $table->string('title');\n             $table->string('description');\n-            $table->string('password');\n+            $table->string('description');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1640484326120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n     {\n         Schema::create('story', function (Blueprint $table) {\n             $table->id();\n             $table->string('title');\n+            $table->string('image');\n             $table->string('description');\n             $table->string('description');\n             $table->rememberToken();\n             $table->timestamps();\n"
+                },
+                {
+                    "date": 1640484331316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n             $table->id();\n             $table->string('title');\n             $table->string('image');\n             $table->string('description');\n-            $table->string('description');\n+            $table->string('quotes');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1640874288294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n             $table->id();\n             $table->string('title');\n             $table->string('image');\n             $table->string('description');\n+            $table->string('description');\n             $table->string('quotes');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1640874293825,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,10 @@\n         Schema::create('story', function (Blueprint $table) {\n             $table->id();\n             $table->string('title');\n             $table->string('image');\n+            $table->string('caption');\n             $table->string('description');\n-            $table->string('description');\n             $table->string('quotes');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1641385358847,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,11 @@\n             $table->id();\n             $table->string('title');\n             $table->string('image');\n             $table->string('caption');\n-            $table->string('description');\n+            $table->string('caption');\n+            $table->string('caption');\n+            $table->text('description');\n             $table->string('quotes');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1641385365266,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n             $table->id();\n             $table->string('title');\n             $table->string('image');\n             $table->string('caption');\n-            $table->string('caption');\n-            $table->string('caption');\n+            $table->string('country');\n+            $table->string('city');\n             $table->text('description');\n             $table->string('quotes');\n             $table->rememberToken();\n             $table->timestamps();\n"
+                }
+            ],
+            "date": 1639831089242,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nclass StoryMigration extends Migration\n{\n    /**\n     * Run the migrations.\n     *\n     * @return void\n     */\n    public function up()\n    {\n        Schema::create('users', function (Blueprint $table) {\n            $table->id();\n            $table->string('name');\n            $table->string('email')->unique();\n            $table->timestamp('email_verified_at')->nullable();\n            $table->string('password');\n            $table->rememberToken();\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     *\n     * @return void\n     */\n    public function down()\n    {\n        //\n    }\n}\n"
+        }
+    ]
+}

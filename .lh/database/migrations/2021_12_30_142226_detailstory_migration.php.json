@@ -1,0 +1,38 @@
+{
+    "sourceFile": "database/migrations/2021_12_30_142226_detailstory_migration.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1640874157244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1640874171068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n      * @return void\n      */\n     public function up()\n     {\n-        Schema::create('admin', function (Blueprint $table) {\n+        Schema::create('story_detail', function (Blueprint $table) {\n             $table->id();\n             $table->string('username');\n             $table->string('password');\n             $table->rememberToken();\n"
+                },
+                {
+                    "date": 1640874176467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     public function up()\n     {\n         Schema::create('story_detail', function (Blueprint $table) {\n             $table->id();\n-            $table->string('username');\n+            $table->string('name');\n             $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n"
+                },
+                {
+                    "date": 1640874245335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     {\n         Schema::create('story_detail', function (Blueprint $table) {\n             $table->id();\n             $table->string('name');\n-            $table->string('password');\n+            $table->foreign('idquestions')->references('idquestion')->on('question');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1640874260192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,10 +14,11 @@\n     public function up()\n     {\n         Schema::create('story_detail', function (Blueprint $table) {\n             $table->id();\n+            $table->foreign('id')->references('idquestion')->on('question');\n             $table->string('name');\n-            $table->foreign('idquestions')->references('idquestion')->on('question');\n+     \n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1640874274360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,16 +12,15 @@\n      * @return void\n      */\n     public function up()\n     {\n-        Schema::create('story_detail', function (Blueprint $table) {\n-            $table->id();\n-            $table->foreign('id')->references('idquestion')->on('question');\n-            $table->string('name');\n-     \n-            $table->rememberToken();\n-            $table->timestamps();\n-        });\n+        // Schema::create('story_detail', function (Blueprint $table) {\n+        //     $table->id();\n+        //     $table->foreign('id')->references('idquestion')->on('question');\n+        //     $table->string('name');\n+        //     $table->rememberToken();\n+        //     $table->timestamps();\n+        // });\n     }\n \n     /**\n      * Reverse the migrations.\n"
+                }
+            ],
+            "date": 1640874157244,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nclass DetailstoryMigration extends Migration\n{\n    /**\n     * Run the migrations.\n     *\n     * @return void\n     */\n    public function up()\n    {\n        Schema::create('admin', function (Blueprint $table) {\n            $table->id();\n            $table->string('username');\n            $table->string('password');\n            $table->rememberToken();\n            $table->timestamps();\n        });\n    }\n\n    /**\n     * Reverse the migrations.\n     *\n     * @return void\n     */\n    public function down()\n    {\n        //\n    }\n}\n"
+        }
+    ]
+}

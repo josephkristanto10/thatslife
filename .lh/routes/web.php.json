@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 3,
+            "activePatchIndex": 51,
             "patches": [
                 {
                     "date": 1638263562078,
@@ -20,6 +20,198 @@
                 {
                     "date": 1639803768641,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,6 +16,6 @@\n Route::get('/', function () {\n     return view('index');\n });\n Route::get('/liststory', function () {\n-    return view('index');\n+    return view('storylist');\n });\n"
+                },
+                {
+                    "date": 1640423311053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,4 +18,7 @@\n });\n Route::get('/liststory', function () {\n     return view('storylist');\n });\n+Route::get('/liststory', function () {\n+    return view('storylist');\n+});\n"
+                },
+                {
+                    "date": 1640423316323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,7 +18,7 @@\n });\n Route::get('/liststory', function () {\n     return view('storylist');\n });\n-Route::get('/liststory', function () {\n+Route::get('/detailstory', function () {\n     return view('storylist');\n });\n"
+                },
+                {
+                    "date": 1640423341722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,6 +19,6 @@\n Route::get('/liststory', function () {\n     return view('storylist');\n });\n Route::get('/detailstory', function () {\n-    return view('storylist');\n+    return view('detailstory');\n });\n"
+                },
+                {
+                    "date": 1640484544892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,4 +21,8 @@\n });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n+Route::get('/detailstory', function () {\n+    return view('detailstory');\n+});\n+\n"
+                },
+                {
+                    "date": 1640484558822,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::get('/detailstory', function () {\n-    return view('detailstory');\n+Route::get('/adminsite', function () {\n+    return view('admin.login');\n });\n \n"
+                },
+                {
+                    "date": 1640484903350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,8 @@\n });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::get('/adminsite', function () {\n+Route::resource('/adminsite', function () {\n     return view('admin.login');\n });\n \n"
+                },
+                {
+                    "date": 1640484913310,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,6 @@\n });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::resource('/adminsite', function () {\n-    return view('admin.login');\n-});\n+Route::resource('admin',});\n \n"
+                },
+                {
+                    "date": 1640484920886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,6 +21,6 @@\n });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::resource('admin',});\n+Route::resource('admin', 'admincontroller');\n \n"
+                },
+                {
+                    "date": 1640485386988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,6 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n+Route::post(\"/checklogin\")\n \n"
+                },
+                {
+                    "date": 1640485395287,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n-Route::post(\"/checklogin\")\n+Route::post(\"/admin/checklogin\")\n \n"
+                },
+                {
+                    "date": 1640485406832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n-Route::post(\"/admin/checklogin\")\n+Route::post(\"/checklogin\")->\n \n"
+                },
+                {
+                    "date": 1640485419636,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n-Route::post(\"/checklogin\")->\n+Route::post(\"/checklogin\",'admincontroller@login')->name()\n \n"
+                },
+                {
+                    "date": 1640485425302,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n-Route::post(\"/checklogin\",'admincontroller@login')->name()\n+Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n \n"
+                },
+                {
+                    "date": 1640487084034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,5 +23,6 @@\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n+Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n \n"
+                },
+                {
+                    "date": 1640487103120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,6 @@\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n-Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n+Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"checklogin\");\n \n"
+                },
+                {
+                    "date": 1640487110676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,6 @@\n     return view('detailstory');\n });\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n-Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"checklogin\");\n+Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n \n"
+                },
+                {
+                    "date": 1640873915634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n+Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n \n"
+                },
+                {
+                    "date": 1640873941640,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,11 @@\n \n Route::get('/', function () {\n     return view('index');\n });\n-Route::get('/liststory', function () {\n-    return view('storylist');\n-});\n+// Route::get('/liststory', function () {\n+//     return view('storylist');\n+// });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::resource('liststory', 'storycontroller');\n"
+                },
+                {
+                    "date": 1640874681785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,5 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n+Route::get(\"admin/daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874698203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"admin/daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"/admin/daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874712816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"/admin/daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"/dmin/daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874719598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"/dmin/daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"admin/daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874741602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"admin/daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874752666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"/admin/daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874767527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"/admin/daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"admin/daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640874782381,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,6 +25,6 @@\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n-Route::get(\"admin/daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n \n"
+                },
+                {
+                    "date": 1640875842288,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,5 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n-\n+Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n"
+                },
+                {
+                    "date": 1640875897989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,5 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n-Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get(\"getdatatablecerita\", \"admincontroller@indexliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1640875906586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,5 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n-Route::get(\"getdatatablecerita\", \"admincontroller@indexliststory\")->name('getdatatablecerita');\n+Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641259559303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,8 +21,9 @@\n // });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n+Route::get('/addcomment', \"storycontroller@\")\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n"
+                },
+                {
+                    "date": 1641259566187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::get('/addcomment', \"storycontroller@\")\n-Route::resource('liststory', 'storycontroller');\n+Route::resource('liststory', 'storycontroller@addcommment');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n"
+                },
+                {
+                    "date": 1641259579327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n // });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::get('/addcomment', \"storycontroller@\")\n-Route::resource('liststory', 'storycontroller@addcommment');\n+Route::get('/addcomment', function )\n+Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n"
+                },
+                {
+                    "date": 1641259587174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::get('/addcomment', function )\n+Route::resource('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n"
+                },
+                {
+                    "date": 1641259611508,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // });\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n-Route::resource('/addcomment', 'storycontroller@addcommment');\n+Route::get('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n"
+                },
+                {
+                    "date": 1641260116708,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n Route::get('/detailstory', function () {\n     return view('detailstory');\n });\n Route::get('/addcomment', 'storycontroller@addcommment');\n+Route::get('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n"
+                },
+                {
+                    "date": 1641260138629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,11 +18,11 @@\n });\n // Route::get('/liststory', function () {\n //     return view('storylist');\n // });\n-Route::get('/detailstory', function () {\n-    return view('detailstory');\n-});\n+// Route::get('/detailstory', function () {\n+//     return view('detailstory');\n+// });\n Route::get('/addcomment', 'storycontroller@addcommment');\n Route::get('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n"
+                },
+                {
+                    "date": 1641260152012,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,10 @@\n // });\n // Route::get('/detailstory', function () {\n //     return view('detailstory');\n // });\n+Route::get('/detailstory', 'storycontroller@indexdetail');\n Route::get('/addcomment', 'storycontroller@addcommment');\n-Route::get('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n"
+                },
+                {
+                    "date": 1641261302693,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // });\n // Route::get('/detailstory', function () {\n //     return view('detailstory');\n // });\n-Route::get('/detailstory', 'storycontroller@indexdetail');\n+Route::get('/detailstory{id}', 'storycontroller@indexdetail');\n Route::get('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n"
+                },
+                {
+                    "date": 1641261308134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // });\n // Route::get('/detailstory', function () {\n //     return view('detailstory');\n // });\n-Route::get('/detailstory{id}', 'storycontroller@indexdetail');\n+Route::get('/detailstory/{id}', 'storycontroller@indexdetail');\n Route::get('/addcomment', 'storycontroller@addcommment');\n Route::resource('liststory', 'storycontroller');\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n"
+                },
+                {
+                    "date": 1641384737798,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,5 +28,6 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n+Route::get('/addcomment', 'storycontroller@addcommment');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641384749597,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,6 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n-Route::get('/addcomment', 'storycontroller@addcommment');\n+Route::post('/addstory', 'storycontroller@addcommment');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641384756441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,6 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n-Route::post('/addstory', 'storycontroller@addcommment');\n+Route::post('/addstory', 'storycontroller@addstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641384787355,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,6 +28,6 @@\n Route::resource('admin', 'admincontroller');\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n-Route::post('/addstory', 'storycontroller@addstory');\n+Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641388459581,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,5 +29,6 @@\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n+Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641388467031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,6 @@\n Route::post(\"/checklogin\",'admincontroller@login')->name(\"checklogin\");\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n-Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n+Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641394912989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,5 +30,6 @@\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n+Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641394919282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,6 +30,7 @@\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n-Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n+Route::post('/editstory', 'storycontroller@Route::post('/editstory', 'storycontroller@deletestory')->name('deletestory');\n+')->name('deletestory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641394924935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,6 @@\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n-Route::post('/editstory', 'storycontroller@Route::post('/editstory', 'storycontroller@deletestory')->name('deletestory');\n-')->name('deletestory');\n+Route::post('/editstory', 'storycontroller@editstory')->name('editstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
                 }
             ],
             "date": 1638263562078,

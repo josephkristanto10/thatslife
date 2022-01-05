@@ -11,6 +11,7 @@
     <!-- <link
         href="{{asset('res/myfont.css?family=PT+Sans+Caption:400,700|PT+Sans:400,700|PT+Serif:400,400i&display=swap')}}"
         rel="stylesheet" type="text/css" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('res/css/bootstrap.css')}}" type="text/css" />
     <link rel="stylesheet" href="{{asset('res/style.css')}}" type="text/css" />
     <!-- <link rel="stylesheet" href="{{asset('res/css/dark.css')}}" type="text/css" /> -->
@@ -31,17 +32,50 @@
 
     <link rel="stylesheet" href="{{asset('res/css/colors.php?color=BF9456')}}" type="text/css" />
     <link rel="shortcut icon" href="{{asset('res/newimage/lovetransparent.png')}}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <!-- Document Title
 	============================================= -->
     <title>Nella Life Story</title>
 
     <style>
-        #about :after{
-            margin:10px auto 0;
+       
+        .float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #0C9;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 2px 2px 3px #999;
         }
-        .card{
+
+        .my-float {
+            margin-top: 22px;
+        }
+
+        @import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+
+        body {
+            background: #eee;
+            font-family: 'Lily Script One';
+        }
+
+        x .card img:hover {
+            webkit-filter: blur(4px);
+            filter: blur(4px);
+        }
+
+        #about :after {
+            margin: 10px auto 0;
+        }
+
+        .card {
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
+
         .line-1 {
             position: relative;
             top: 50%;
@@ -140,6 +174,50 @@
             font-weight: 700;
             border-radius: 5px;
         }
+
+
+        /* Visit https://nicolaskadis.info/posts/pure-css-flip-cards-using-bootstrap-4-and-css-grid-no-js for an explanation */
+
+        /* for demo purposes */
+        .card {
+            height: 325px;
+            margin: 10px 10px;
+        }
+
+        /* Flip Cards CSS */
+        .card-container {
+            display: grid;
+            perspective: 700px;
+        }
+
+        .card-flip {
+            display: grid;
+            grid-template: 1fr / 1fr;
+            grid-template-areas: "frontAndBack";
+            transform-style: preserve-3d;
+            transition: all 0.7s ease;
+        }
+
+        .card-flip div {
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .front {
+            grid-area: frontAndBack;
+        }
+
+        .back {
+            grid-area: frontAndBack;
+            transform: rotateY(-180deg);
+        }
+
+        .card-container:hover .card-flip {
+            transform: rotateY(180deg);
+        }
+        .pagination {
+   justify-content: center;
+}
     </style>
 
 </head>
@@ -221,7 +299,7 @@
 
                 <!-- About Section
 				============================================= -->
-                <div id="about" class="section m-0 bg-transparent page-section" style="padding: 50px 0">
+                <div id="about" class="section m-0 bg-transparent page-section" style="padding: 10px 0">
                     <div class="container clearfix">
                         <div class="row clearfix">
                             <!-- <div class="col-md-3 col-6 d-none d-md-block">
@@ -229,12 +307,12 @@
                              
                                 <img src="{{asset('res/newimage/sunset.jpeg')}}" alt="Image" style = "margin-top:20px;">
                             </div> -->
-                            <div class="col-md-12 col-12 center" style="padding: 0 50px;">
-                                <img src="{{asset('res/newimage/list.png')}}" alt="Image" height="70" width="70"
-                                    style="margin-bottom: 20px">
-                                <div class="heading-block bottommargin-sm">
+                            <div class="col-md-12 col-12 center" style="padding: 0 20px;">
+                                <!-- <img src="{{asset('res/newimage/list.png')}}" alt="Image" height="30" width="30"
+                                    style="margin-bottom: 20px"> -->
+                                <!-- <div class="heading-block bottommargin-sm">
                                     <h2>Story List</h2>
-                                </div>
+                                </div> -->
 
 
                                 <!-- <img src="{{asset('res/demos/barber/images/about/sign.png')}}" alt="Image" width="200"> -->
@@ -248,449 +326,118 @@
                     </div>
                 </div>
 
-                <!-- Service Page Section
-				============================================= -->
 
 
-                <!-- Price Page Section - Parallax
-				============================================= -->
-                <!-- <div id="price" class="section page-section parallax pb-0 mb-0 dark" style="background-image: url('demos/barber/images/sections/3.jpg'); background-size: cover; height: 600px" data-bottom-top="background-position:0px 0px;" data-top-bottom="background-position:0px -300px;"></div>
-
-                <div class="container bottommargin dark clearfix" style="margin-top: -500px">
-                    <div class="heading-block bottommargin-lg center clearfix">
-                        <img src="demos/barber/images/icons/wallet-white.svg" alt="Image" height="40" style="margin-bottom: 20px">
-                        <h2>Pricing</h2>
-                    </div> -->
-
-                <!-- Price Items
-					============================================= -->
-                <!-- <div class="row dark col-padding clearfix" style="background-color: #121212">
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Haircut</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$39</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">HairWash</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$42</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="w-100 clear"></div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Shave</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$29</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Hair Colour</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$17</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="w-100 clear"></div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Moustache</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$39</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Beard Trim</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$42</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="w-100 clear"></div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Facial</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$29</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="col-lg-6 price-wrap">
-                        <div class="price-header">
-                            <div class="price-name">
-                                <a href="#" class="color">Head Massage</a>
-                            </div>
-                            <div class="price-dots">
-                                <span class="separator-dots"></span>
-                            </div>
-                            <div class="price-price">$17</div>
-                        </div>
-                        <p class="price-desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt quos harum officia eaque nobis ut.</p>
-                    </div>
-
-                    <div class="col-12 center">
-                        <a href="#" class="button button-large button-color d-none d-lg-block "><i class="icon-calendar2"></i> Make An Appointment</a>
-                    </div>
-                </div>
-
-            </div> -->
-
-                <!-- Shop Page Section
-				============================================= -->
-                <!-- <div id="shop" class="section m-0 page-section bg-transparent">
-
-                    <div class="container">
-                        <div class="heading-block center">
-                            <img src="demos/barber/images/icons/comb3.svg" alt="Image" height="40" style="margin-bottom: 20px">
-                            <h2>Shop</h2>
-                        </div>
-
-                        <div class="row col-mb-50 mb-0"> -->
-                <!-- Shop Item 1
-							============================================= -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <div class="product">
-                        <div class="product-image">
-                            <a href="#"><img src="demos/barber/images/shop/1.jpg" alt="High-Heel Girl's Sandals"></a>
-                            <a href="#" class="shop-icon"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <div class="product-desc center">
-                            <div class="product-price"><ins>$21.49</ins></div>
-                            <div class="product-title">
-                                <h3><a href="#">Razor</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Shop Item 2
-							============================================= -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <div class="product">
-                        <div class="product-image">
-                            <a href="#"><img src="demos/barber/images/shop/2.jpg" alt="High-Heel Girl's Sandals"></a>
-                            <a href="#" class="shop-icon"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <div class="product-desc center">
-                            <div class="product-price"><ins>$12.49</ins></div>
-                            <div class="product-title">
-                                <h3><a href="#">Shave Brush</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-
-                <!-- Shop Item 3
-							============================================= -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <div class="product">
-                        <div class="product-image">
-                            <a href="#"><img src="demos/barber/images/shop/3.jpg" alt="High-Heel Girl's Sandals"></a>
-                            <a href="#" class="shop-icon"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <div class="product-desc center">
-                            <div class="product-price"><ins>$21.99</ins></div>
-                            <div class="product-title">
-                                <h3><a href="#">Beard oil</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- Shop Item 4
-							============================================= -->
-                <!-- <div class="col-lg-3 col-md-6">
-                    <div class="product">
-                        <div class="product-image">
-                            <a href="#"><img src="demos/barber/images/shop/4.jpg" alt="High-Heel Girl's Sandals"></a>
-                            <div class="sale-flash badge badge-success p-2">-50%*</div>
-                            <a href="#" class="shop-icon"><i class="icon-shopping-cart"></i></a>
-                        </div>
-                        <div class="product-desc center">
-                            <div class="product-price"><del>$24.99</del> <ins>$19.49</ins></div>
-                            <div class="product-title">
-                                <h3><a href="#">Hair Brush</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="center">
-                <a href="#" class="button button-large button-color">+ More Products</a>
-            </div>
-
-    </div>
-    </div> -->
                 <center>
-                <div style="width:80% !important;">
-                    <div class="row">
-                        <div class="col-xl-4">
-                            <div class="card" style="width: 18rem;">
-                                <img class="bd-placeholder-img card-img-top" width="100%" height="220"
-                                    src="{{asset('res/newimage/sunset.jpeg')}}" >
-                                 
-                                    <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%"
-                                        fill="#dee2e6" dy=".3em">Image cap</text>
-                              
+                    <div style="width:80% !important;">
+                        <div class="row">
+                            <div class="container">
+                                <?php
 
-                                <div class="card-body">
-                                    <p class="card-text">Quick sample text to create the card title and make up the body
-                                        of
-                                        the card's content.</p>
+                                $index = 1;
+
+                                ?>
+                                <div class="row">
+                                    @foreach($allstory as $key => $as)
+                                    <?php if($index == 4 )
+                                { echo "</div><div class = 'row'>";}
+                                ?>
+                                    <div class="col-md-4 card-container">
+                                        <div class="card-flip">
+                                            <div class="card front">
+                                                <img src="{{asset('res/newimage/gedung.jpeg')}}" style="height:250px;"
+                                                    class="card-img-top img-fluid">
+                                                <div
+                                                    style="position:absolute;right:20px;top:20px;font-size:10px;font-weight:bold;background-color:#BF9456;color:white;border-radius:10px;width:125px;height:20px; padding-top:2px; ">
+
+                                                    {{ date('d F Y', strtotime($as->created_at))}}
+                                                </div>
+                                                <div class="card-block"
+                                                    style="text-align:left;padding:5px;height:50px !important;">
+                                                    <div style="height:50px !important;">
+                                                        <div style="float:left;line-height:28px;"><span
+                                                                style="font-weight:bold;"> {{$as->title}}</span><br>
+                                                            <!-- <span style="font-size:14px;">16th Dec
+                                                    2020</span> -->
+
+                                                            <span style="color:#3aa322 !important;font-size:13px;"><img
+                                                                    class="bd-placeholder-img card-img-top"
+                                                                    style="color:#3aa322;width:18px;height:18px;float:left;margin-top:6px;"
+                                                                    src="{{asset('res/newimage/pin.png')}}">
+                                                                Jakarta, Indonesia<br></span>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- End Card 2 Front -->
+
+                                            <!-- Card 2 Back -->
+                                            <div class="card back" style="padding:10px;">
+                                                <div class="card-header"
+                                                    style="background-color:#303030;color:white;font-size:14px;">
+                                                    {{$as->title}}
+                                                </div>
+                                                <div class="card-block">
+                                                    <br>
+
+                                                    <p class="card-text"
+                                                        style="font-size:12px;text-align:justify;padding:5px;">
+                                                        {{Str::limit($as->description,300)}} </p>
+                                                    <?php
+                                                    $urlid = $as->id;
+                                                    $destination = URL::to('/detailstory/'.$urlid);
+                                                    ?>
+                                                    <a href="<?php echo $destination;?>" class="btn btn-primary"
+                                                        style="font-size:12px;background-color:#e3a405;border:0px solid black;">Explore
+                                                        This Story &nbsp <i class="bi bi-send"></i></a>
+                                                </div>
+                                            </div>
+                                            <!-- End Card 2 Back -->
+                                        </div>
+                                    </div>
+                                    <?php if($index == 4 )
+                                { 
+                                  $index = 1;   
+                                }
+                                else
+                                {
+                                    $index++;
+                                }
+                                ?>
+
+
+                                    @endforeach
+                                    <br />
+
+                                    <div style = "width:100%;text-align:center;margin-top:30px;">
+                                        {{ $allstory->links() }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4">
-                            <div class="card" style="width: 18rem;">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="220"
-                                    src="{{asset('res/newimage/gedung.jpeg')}}" >
-                                    <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%"
-                                        fill="#dee2e6" dy=".3em">Image cap</text>
-                                </svg>
-
-                                <div class="card-body">
-                                    <p class="card-text">Quick sample text to create the card title and make up the body
-                                        of
-                                        the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="card" style="width: 18rem;">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="220"
-                                    src="{{asset('res/newimage/fotoaboutme1.jpg')}}" >
-                                    <rect width="100%" height="100%" fill="#868e96" /><text x="50%" y="50%"
-                                        fill="#dee2e6" dy=".3em">Image cap</text>
-                                </svg>
-
-                                <div class="card-body">
-                                    <p class="card-text">Quick sample text to create the card title and make up the body
-                                        of
-                                        the card's content.</p>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
-                </div>
-    </center>
+                    <br><br>
+
+                    <!-- FLoating Button -->
+                    <a href="#" class="float" style="line-height:20px;padding-top:15px;z-index:50000;">
+
+                        <i class="bi bi-funnel-fill my-float" style="font-size:25px !important;"></i><br>
+                        <span style="margin-top:5px;font-size:15px !important;font-weight:bold;">
+                            Filter
+                        </span>
+                    </a>
+                    <!-- End Floating Button -->
+
+                </center>
 
                 <!-- Testimonial Page Section
 				============================================= -->
 
                 <!-- Barber Teams
 				============================================= -->
-                <div class="section bg-transparent mb-0 topmargin-sm clearfix">
-
-                    <div class="container clearfix" id="myphoto">
-
-                        <div class="heading-block center">
-                            <img src="{{asset('res/demos/barber/images/icons/team.svg')}}" alt="Image" height="50"
-                                style="margin-bottom: 20px">
-                            <h3 class="ls2">My Photo</h3>
-                            <span>A little bit photo of me, Travelling and Explore to....</span>
-                        </div>
-
-                        <div class="row">
-                            <!-- Team 1
-							============================================= -->
-                            <div class="col-md-4 bottommargin">
-                                <div class="team">
-                                    <div class="team-image">
-                                        <img src="{{asset('res/demos/barber/images/barbers/1.jpg')}}" alt="John Doe">
-                                        <div class="bg-overlay">
-                                            <div
-                                                class="bg-overlay-content p-2 flex-column-reverse justify-content-between align-items-center">
-                                                <div class="d-flex mb-3" data-hover-animate="fadeInUp"
-                                                    data-hover-animate-out="fadeOutDown" data-hover-speed="400"
-                                                    data-hover-parent=".team">
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-facebook"
-                                                        title="Facebook">
-                                                        <i class="icon-facebook"></i>
-                                                        <i class="icon-facebook"></i>
-                                                    </a>
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-gplus"
-                                                        title="gplus">
-                                                        <i class="icon-gplus"></i>
-                                                        <i class="icon-gplus"></i>
-                                                    </a>
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-instagram"
-                                                        title="instagram">
-                                                        <i class="icon-instagram"></i>
-                                                        <i class="icon-instagram"></i>
-                                                    </a>
-                                                </div>
-                                                <a a href="#" data-href="#mypost"
-                                                    class="button button-large button-color m-0 w-100 text-center"
-                                                    data-hover-animate="fadeInDown" data-hover-animate-out="fadeOutUp"
-                                                    data-hover-speed="400" data-hover-parent=".team">My Post</a>
-                                            </div>
-                                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
-                                                data-hover-speed="400" data-hover-parent=".team"></div>
-                                        </div>
-                                    </div>
-                                    <div class="team-desc">
-                                        <div class="team-title">
-                                            <h4>John Doe</h4><span>Expert</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Team 2
-							============================================= -->
-                            <div class="col-md-4 bottommargin">
-                                <div class="team">
-                                    <div class="team-image">
-                                        <img src="{{asset('res/demos/barber/images/barbers/2.jpg')}}"
-                                            alt="Josh Thompson">
-                                        <div class="bg-overlay">
-                                            <div
-                                                class="bg-overlay-content p-2 flex-column-reverse justify-content-between align-items-center">
-                                                <div class="d-flex mb-3" data-hover-animate="fadeInUp"
-                                                    data-hover-animate-out="fadeOutDown" data-hover-speed="400"
-                                                    data-hover-parent=".team">
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-facebook"
-                                                        title="Facebook">
-                                                        <i class="icon-facebook"></i>
-                                                        <i class="icon-facebook"></i>
-                                                    </a>
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-gplus"
-                                                        title="gplus">
-                                                        <i class="icon-gplus"></i>
-                                                        <i class="icon-gplus"></i>
-                                                    </a>
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-instagram"
-                                                        title="instagram">
-                                                        <i class="icon-instagram"></i>
-                                                        <i class="icon-instagram"></i>
-                                                    </a>
-                                                </div>
-                                                <a href="#"
-                                                    class="button button-large button-color m-0 w-100 text-center"
-                                                    data-hover-animate="fadeInDown" data-hover-animate-out="fadeOutUp"
-                                                    data-hover-speed="400" data-hover-parent=".team">Appointment</a>
-                                            </div>
-                                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
-                                                data-hover-speed="400" data-hover-parent=".team"></div>
-                                        </div>
-                                    </div>
-                                    <div class="team-desc">
-                                        <div class="team-title">
-                                            <h4>Josh Thompson</h4><span>Barber</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Team 3
-							============================================= -->
-                            <div class="col-md-4 bottommargin">
-                                <div class="team">
-                                    <div class="team-image">
-                                        <img src="{{asset('res/demos/barber/images/barbers/3.jpg')}}" alt="Mary Jane">
-                                        <div class="bg-overlay">
-                                            <div
-                                                class="bg-overlay-content p-2 flex-column-reverse justify-content-between align-items-center">
-                                                <div class="d-flex mb-3" data-hover-animate="fadeInUp"
-                                                    data-hover-animate-out="fadeOutDown" data-hover-speed="400"
-                                                    data-hover-parent=".team">
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-facebook"
-                                                        title="Facebook">
-                                                        <i class="icon-facebook"></i>
-                                                        <i class="icon-facebook"></i>
-                                                    </a>
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-gplus"
-                                                        title="gplus">
-                                                        <i class="icon-gplus"></i>
-                                                        <i class="icon-gplus"></i>
-                                                    </a>
-                                                    <a href="#"
-                                                        class="social-icon si-rounded si-colored si-small si-instagram"
-                                                        title="instagram">
-                                                        <i class="icon-instagram"></i>
-                                                        <i class="icon-instagram"></i>
-                                                    </a>
-                                                </div>
-                                                <a href="#"
-                                                    class="button button-large button-color m-0 w-100 text-center"
-                                                    data-hover-animate="fadeInDown" data-hover-animate-out="fadeOutUp"
-                                                    data-hover-speed="400" data-hover-parent=".team">Appointment</a>
-                                            </div>
-                                            <div class="bg-overlay-bg dark" data-hover-animate="fadeIn"
-                                                data-hover-speed="400" data-hover-parent=".team"></div>
-                                        </div>
-                                    </div>
-                                    <div class="team-desc">
-                                        <div class="team-title">
-                                            <h4>Mary Jane</h4><span>Junior Barber</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
 
                 <!-- Contact Page Section
 				============================================= -->
@@ -843,7 +590,7 @@
 
     <!-- Go To Top
 	============================================= -->
-    <div id="gotoTop" class="icon-angle-up"></div>
+    <!-- <div id="gotoTop" class="icon-angle-up"></div> -->
 
     <!-- JavaScripts
 	============================================= -->
@@ -870,4 +617,14 @@
             setTimeout(typeWriter, speed);
         }
     };
+
+    // function showimage(x){
+
+    //     $("#kotakdetail").css("display",'block');
+
+    // }
+    // function closeimage(x){
+    //     alert("test");
+    //     $("#kotakdetail").css("display",'none');
+    // }
 </script>

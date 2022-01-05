@@ -1,0 +1,30 @@
+{
+    "sourceFile": "database/migrations/2021_12_18_123932_admin_migration.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1639831194308,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1639831201110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,16 @@\n      * @return void\n      */\n     public function up()\n     {\n-        \n+        Schema::create('admin', function (Blueprint $table) {\n+            $table->id();\n+            $table->string('username');\n+            $table->string('image');\n+            $table->string('description');\n+            $table->rememberToken();\n+            $table->timestamps();\n+        });\n     }\n \n     /**\n      * Reverse the migrations.\n"
+                },
+                {
+                    "date": 1639831207462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,10 +15,9 @@\n     {\n         Schema::create('admin', function (Blueprint $table) {\n             $table->id();\n             $table->string('username');\n-            $table->string('image');\n-            $table->string('description');\n+            $table->string('password');\n             $table->rememberToken();\n             $table->timestamps();\n         });\n     }\n"
+                },
+                {
+                    "date": 1639831570365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,7 +28,7 @@\n      * @return void\n      */\n     public function down()\n     {\n-        //\n+        Schema::dropIfExists('admin');\n     }\n }\n"
+                }
+            ],
+            "date": 1639831194308,
+            "name": "Commit-0",
+            "content": "<?php\n\nuse Illuminate\\Database\\Migrations\\Migration;\nuse Illuminate\\Database\\Schema\\Blueprint;\nuse Illuminate\\Support\\Facades\\Schema;\n\nclass AdminMigration extends Migration\n{\n    /**\n     * Run the migrations.\n     *\n     * @return void\n     */\n    public function up()\n    {\n        \n    }\n\n    /**\n     * Reverse the migrations.\n     *\n     * @return void\n     */\n    public function down()\n    {\n        //\n    }\n}\n"
+        }
+    ]
+}

@@ -1,0 +1,330 @@
+{
+    "sourceFile": "app/Http/Controllers/storycontroller.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 78,
+            "patches": [
+                {
+                    "date": 1640873847829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1640873870146,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        \n+        return view('storylist');\n     }\n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1640873969422,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,11 @@\n     public function index()\n     {\n         return view('storylist');\n     }\n+    public function getallstory(){\n+        \n+    }\n \n     /**\n      * Show the form for creating a new resource.\n      *\n"
+                },
+                {
+                    "date": 1640873994991,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n+use app\\Models\\Story;\n \n class storycontroller extends Controller\n {\n     /**\n"
+                },
+                {
+                    "date": 1640874022734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,12 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n+        $allstory = Story::orderBy()\n         return view('storylist');\n     }\n-    public function getallstory(){\n-        \n-    }\n+  \n \n     /**\n      * Show the form for creating a new resource.\n      *\n"
+                },
+                {
+                    "date": 1640874031217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $allstory = Story::orderBy()\n+        $allstory = Story::orderBy('id', 'desc');\n         return view('storylist');\n     }\n   \n \n"
+                },
+                {
+                    "date": 1640874046097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      */\n     public function index()\n     {\n         $allstory = Story::orderBy('id', 'desc');\n-        return view('storylist');\n+        return view('storylist', compact)());\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1640874053774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n      */\n     public function index()\n     {\n         $allstory = Story::orderBy('id', 'desc');\n-        return view('storylist', compact)());\n+        return view('storylist', compact('allstory'));\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1640874472803,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n-use app\\Models\\Story;\n+use App\\Models\\Story;\n \n class storycontroller extends Controller\n {\n     /**\n"
+                },
+                {
+                    "date": 1640875365760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,10 @@\n namespace App\\Http\\Controllers;\n \n use Illuminate\\Http\\Request;\n use App\\Models\\Story;\n+use DataTables;\n+use DB;\n \n class storycontroller extends Controller\n {\n     /**\n"
+                },
+                {
+                    "date": 1640875432441,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n use Illuminate\\Http\\Request;\n use App\\Models\\Story;\n use DataTables;\n use DB;\n-\n+    \n class storycontroller extends Controller\n {\n     /**\n      * Display a listing of the resource.\n"
+                },
+                {
+                    "date": 1641117526228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,11 @@\n      * @return \\Illuminate\\Http\\Response\n      */\n     public function index()\n     {\n-        $allstory = Story::orderBy('id', 'desc');\n+\n+        $allstory = Story::orderBy('id', 'desc')->get()->paginate(5);\n+\n         return view('storylist', compact('allstory'));\n     }\n   \n \n"
+                },
+                {
+                    "date": 1641117552554,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      */\n     public function index()\n     {\n \n-        $allstory = Story::orderBy('id', 'desc')->get()->paginate(5);\n+        $allstory = Story::orderBy('id', 'desc')->->paginate(5);\n \n         return view('storylist', compact('allstory'));\n     }\n   \n"
+                },
+                {
+                    "date": 1641117563402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      */\n     public function index()\n     {\n \n-        $allstory = Story::orderBy('id', 'desc')->->paginate(5);\n+        $allstory = Story::orderBy('id', 'desc')->paginate(3);\n \n         return view('storylist', compact('allstory'));\n     }\n   \n"
+                },
+                {
+                    "date": 1641259520244,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,14 @@\n         $allstory = Story::orderBy('id', 'desc')->paginate(3);\n \n         return view('storylist', compact('allstory'));\n     }\n+    public function addcommment(){\n+        $post = Post::find(1);\n+$comment = $post->comments->first();\n+\n+$comment->approve();\n+    }\n   \n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1641259525649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,12 +21,12 @@\n \n         return view('storylist', compact('allstory'));\n     }\n     public function addcommment(){\n-        $post = Post::find(1);\n-$comment = $post->comments->first();\n+        $post = Story::find(1);\n+        $comment = $post->comments->first();\n \n-$comment->approve();\n+        $comment->approve();\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641259535857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,12 +21,10 @@\n \n         return view('storylist', compact('allstory'));\n     }\n     public function addcommment(){\n-        $post = Story::find(1);\n-        $comment = $post->comments->first();\n-\n-        $comment->approve();\n+        $story = Story::find(1);\n+        $comment = $post->comment('This is a comment from a user.');\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641259621455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n         return view('storylist', compact('allstory'));\n     }\n     public function addcommment(){\n         $story = Story::find(1);\n-        $comment = $post->comment('This is a comment from a user.');\n+        $comment = $story->comment('This is a comment from a user.');\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641259657305,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,8 +23,9 @@\n     }\n     public function addcommment(){\n         $story = Story::find(1);\n         $comment = $story->comment('This is a comment from a user.');\n+        $comment->approve();\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641259720088,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n         return view('storylist', compact('allstory'));\n     }\n     public function addcommment(){\n-        $story = Story::find(1);\n+        $story = Story::find(3);\n         $comment = $story->comment('This is a comment from a user.');\n         $comment->approve();\n     }\n   \n"
+                },
+                {
+                    "date": 1641259727906,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \n         return view('storylist', compact('allstory'));\n     }\n     public function addcommment(){\n-        $story = Story::find(3);\n+        $story = Story::find(2);\n         $comment = $story->comment('This is a comment from a user.');\n         $comment->approve();\n     }\n   \n"
+                },
+                {
+                    "date": 1641259909987,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,12 @@\n         $story = Story::find(2);\n         $comment = $story->comment('This is a comment from a user.');\n         $comment->approve();\n     }\n+    public function indexdetail()\n+    {\n+        $comments = $post->comments;\n+    }\n   \n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1641259923186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,11 @@\n         $story = Story::find(2);\n         $comment = $story->comment('This is a comment from a user.');\n         $comment->approve();\n     }\n-    public function indexdetail()\n+    public function indexdetail(Request $request)\n     {\n+        $idpost = $request->id;\n         $comments = $post->comments;\n     }\n   \n \n"
+                },
+                {
+                    "date": 1641259933651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,10 @@\n         $comment->approve();\n     }\n     public function indexdetail(Request $request)\n     {\n-        $idpost = $request->id;\n+        $idpost = $request->id_post;\n+        $story = Story::find(2);\n         $comments = $post->comments;\n     }\n   \n \n"
+                },
+                {
+                    "date": 1641259939908,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n     }\n     public function indexdetail(Request $request)\n     {\n         $idpost = $request->id_post;\n-        $story = Story::find(2);\n+        $story = Story::find($idpost);\n         $comments = $post->comments;\n     }\n   \n \n"
+                },
+                {
+                    "date": 1641259947644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,10 @@\n     public function indexdetail(Request $request)\n     {\n         $idpost = $request->id_post;\n         $story = Story::find($idpost);\n-        $comments = $post->comments;\n+        $comments = $story->comments;\n+        return view('storylist', compact('allstory'));\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641259959737,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     {\n         $idpost = $request->id_post;\n         $story = Story::find($idpost);\n         $comments = $story->comments;\n-        return view('storylist', compact('allstory'));\n+        return view('detailstory', compact('allstory'));\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641259976319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     {\n         $idpost = $request->id_post;\n         $story = Story::find($idpost);\n         $comments = $story->comments;\n-        return view('detailstory', compact('allstory'));\n+        return view('detailstory', compact('comments'));\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641260130113,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n         $comment->approve();\n     }\n     public function indexdetail(Request $request)\n     {\n-        $idpost = $request->id_post;\n+        // $idpost = $request->id_post;\n         $story = Story::find($idpost);\n         $comments = $story->comments;\n         return view('detailstory', compact('comments'));\n     }\n"
+                },
+                {
+                    "date": 1641260135561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,12 +25,12 @@\n         $story = Story::find(2);\n         $comment = $story->comment('This is a comment from a user.');\n         $comment->approve();\n     }\n-    public function indexdetail(Request $request)\n+    public function indexdetail()\n     {\n         // $idpost = $request->id_post;\n-        $story = Story::find($idpost);\n+        $story = Story::find(1);\n         $comments = $story->comments;\n         return view('detailstory', compact('comments'));\n     }\n   \n"
+                },
+                {
+                    "date": 1641261316763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n         $story = Story::find(2);\n         $comment = $story->comment('This is a comment from a user.');\n         $comment->approve();\n     }\n-    public function indexdetail()\n+    public function indexdetail($id)\n     {\n         // $idpost = $request->id_post;\n         $story = Story::find(1);\n         $comments = $story->comments;\n"
+                },
+                {
+                    "date": 1641261344269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,11 +28,11 @@\n     }\n     public function indexdetail($id)\n     {\n         // $idpost = $request->id_post;\n-        $story = Story::find(1);\n+        $story = Story::find($id);\n         $comments = $story->comments;\n-        return view('detailstory', compact('comments'));\n+        return view('detailstory', compact('comments', '$story'));\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641261350430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n     {\n         // $idpost = $request->id_post;\n         $story = Story::find($id);\n         $comments = $story->comments;\n-        return view('detailstory', compact('comments', '$story'));\n+        return view('detailstory', compact('comments', 'story'));\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641384776353,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,9 @@\n         $story = Story::find($id);\n         $comments = $story->comments;\n         return view('detailstory', compact('comments', 'story'));\n     }\n+    public function addstory(Request $request)\n   \n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1641384809901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,11 @@\n         $comments = $story->comments;\n         return view('detailstory', compact('comments', 'story'));\n     }\n     public function addstory(Request $request)\n+    {\n+        $tile = $request->title;\n+    }\n   \n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1641384815183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n         return view('detailstory', compact('comments', 'story'));\n     }\n     public function addstory(Request $request)\n     {\n-        $tile = $request->title;\n+        $tile = $request->titlestory;\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641384823048,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,13 @@\n     }\n     public function addstory(Request $request)\n     {\n         $tile = $request->titlestory;\n+        countrystory\n+citystory\n+imagestory\n+quotesstory\n+descriptionstory\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641384829740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,12 @@\n     }\n     public function addstory(Request $request)\n     {\n         $tile = $request->titlestory;\n+        $tile = $request->titlestory;\n+        $tile = $request->titlestory;\n+        $tile = $request->titlestory;\n+        $tile = $request->titlestory;\n         countrystory\n citystory\n imagestory\n quotesstory\n"
+                },
+                {
+                    "date": 1641384837837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,14 +35,14 @@\n     }\n     public function addstory(Request $request)\n     {\n         $tile = $request->titlestory;\n+        $country = $request->countrystory;\n+        $city = $request->citystory;\n         $tile = $request->titlestory;\n         $tile = $request->titlestory;\n-        $tile = $request->titlestory;\n-        $tile = $request->titlestory;\n-        countrystory\n-citystory\n+        \n+\n imagestory\n quotesstory\n descriptionstory\n     }\n"
+                },
+                {
+                    "date": 1641384845415,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,10 +37,10 @@\n     {\n         $tile = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n+        $image = $request->imagestory;\n         $tile = $request->titlestory;\n-        $tile = $request->titlestory;\n         \n \n imagestory\n quotesstory\n"
+                },
+                {
+                    "date": 1641384850608,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,13 +38,10 @@\n         $tile = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n-        $tile = $request->titlestory;\n-        \n+        $tile = $request->quotesstory;\n \n-imagestory\n-quotesstory\n descriptionstory\n     }\n   \n \n"
+                },
+                {
+                    "date": 1641384857276,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n         $tile = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n-        $tile = $request->quotesstory;\n+        $quotes = $request->quotesstory;\n \n descriptionstory\n     }\n   \n"
+                },
+                {
+                    "date": 1641384870063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,10 +39,10 @@\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n         $quotes = $request->quotesstory;\n+        $description = $request->descriptionstory;\n \n-descriptionstory\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641385618198,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,9 @@\n         $city = $request->citystory;\n         $image = $request->imagestory;\n         $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n+        $addstory = new Story;\n \n     }\n   \n \n"
+                },
+                {
+                    "date": 1641385631334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,15 +34,16 @@\n         return view('detailstory', compact('comments', 'story'));\n     }\n     public function addstory(Request $request)\n     {\n-        $tile = $request->titlestory;\n+        $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n         $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n+        $addstory->title;\n \n     }\n   \n \n"
+                },
+                {
+                    "date": 1641385636992,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         $image = $request->imagestory;\n         $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n-        $addstory->title;\n+        $addstory->title = $title;\n \n     }\n   \n \n"
+                },
+                {
+                    "date": 1641385642948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,14 @@\n         $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n+        $addstory->title = $title;\n+        $addstory->title = $title;\n+        $addstory->title = $title;\n+        $addstory->title = $title;\n+        $addstory->title = $title;\n+        \n \n     }\n   \n \n"
+                },
+                {
+                    "date": 1641385679953,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,18 +39,19 @@\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n         $quotes = $request->quotesstory;\n+        $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->title = $title;\n         $addstory->title = $title;\n         $addstory->title = $title;\n         $addstory->title = $title;\n         $addstory->title = $title;\n-        \n \n+\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641385718490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,13 +43,14 @@\n         $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n-        $addstory->title = $title;\n-        $addstory->title = $title;\n-        $addstory->title = $title;\n-        $addstory->title = $title;\n-        $addstory->title = $title;\n+        $addstory->image = $title;\n+        $addstory->caption = $title;\n+        $addstory->country = $title;\n+        $addstory->city = $title;\n+        $addstory->description = $title;\n+        $addstory->description = $title;\n \n \n     }\n   \n"
+                },
+                {
+                    "date": 1641385724529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,9 @@\n         $addstory->country = $title;\n         $addstory->city = $title;\n         $addstory->description = $title;\n         $addstory->description = $title;\n+        $addstory->save();\n \n \n     }\n   \n"
+                },
+                {
+                    "date": 1641385733527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         $addstory->caption = $title;\n         $addstory->country = $title;\n         $addstory->city = $title;\n         $addstory->description = $title;\n-        $addstory->description = $title;\n+        $addstory->quotes = $title;\n         $addstory->save();\n \n \n     }\n"
+                },
+                {
+                    "date": 1641385739709,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,8 @@\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n         $quotes = $request->quotesstory;\n-        $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $title;\n"
+                },
+                {
+                    "date": 1641385745385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,10 +46,10 @@\n         $addstory->image = $title;\n         $addstory->caption = $title;\n         $addstory->country = $title;\n         $addstory->city = $title;\n-        $addstory->description = $title;\n-        $addstory->quotes = $title;\n+        $addstory->description = $description;\n+        $addstory->quotes = $quotes;\n         $addstory->save();\n \n \n     }\n"
+                },
+                {
+                    "date": 1641385750644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,10 +44,10 @@\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $title;\n         $addstory->caption = $title;\n-        $addstory->country = $title;\n-        $addstory->city = $title;\n+        $addstory->country = $country;\n+        $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n \n"
+                },
+                {
+                    "date": 1641385756117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,9 @@\n         $quotes = $request->quotesstory;\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n-        $addstory->image = $title;\n-        $addstory->caption = $title;\n+        $addstory->image = $image;\n         $addstory->country = $country;\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n"
+                },
+                {
+                    "date": 1641386656485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $image;\n         $addstory->country = $country;\n+        $addstory->country = $country;\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n"
+                },
+                {
+                    "date": 1641386662781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $image;\n         $addstory->country = $country;\n-        $addstory->country = $country;\n+        $addstory->caption = \"\";\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n"
+                },
+                {
+                    "date": 1641386958505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,13 +44,15 @@\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $image;\n         $addstory->country = $country;\n-        $addstory->caption = \"\";\n+        $addstory->caption = \" \";\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n+        $file = $request->file('file');\n+$file->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n \n \n     }\n   \n"
+                },
+                {
+                    "date": 1641386975555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,9 @@\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n-        $file = $request->file('file');\n+        $file = $request->file('imagestory');\n $file->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n \n \n     }\n"
+                },
+                {
+                    "date": 1641386981203,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n         $file = $request->file('imagestory');\n-$file->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n+        $file->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n \n \n     }\n   \n"
+                },
+                {
+                    "date": 1641386987186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,10 +49,10 @@\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n-        $file = $request->file('imagestory');\n-        $file->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n+        $fileimage = $request->file('imagestory');\n+        $fileimage->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n \n \n     }\n   \n"
+                },
+                {
+                    "date": 1641386998723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,10 @@\n         return view('detailstory', compact('comments', 'story'));\n     }\n     public function addstory(Request $request)\n     {\n+        $fileimage = $request->file('imagestory');\n+        $fileimage->move(base_path('\\modo\\images'), $fileimage->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n@@ -49,10 +51,9 @@\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n-        $fileimage = $request->file('imagestory');\n-        $fileimage->move(base_path('\\modo\\images'), $file->getClientOriginalName());\n+     \n \n \n     }\n   \n"
+                },
+                {
+                    "date": 1641387006725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,10 @@\n     public function addstory(Request $request)\n     {\n         $fileimage = $request->file('imagestory');\n         $fileimage->move(base_path('\\modo\\images'), $fileimage->getClientOriginalName());\n+        $filequotes = $request->file('imagestory');\n+        $fileimage->move(base_path('\\modo\\images'), $fileimage->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n"
+                },
+                {
+                    "date": 1641387016417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     {\n         $fileimage = $request->file('imagestory');\n         $fileimage->move(base_path('\\modo\\images'), $fileimage->getClientOriginalName());\n         $filequotes = $request->file('imagestory');\n-        $fileimage->move(base_path('\\modo\\images'), $fileimage->getClientOriginalName());\n+        $filequotes->move(base_path('\\modo\\images'), $filequotes->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n"
+                },
+                {
+                    "date": 1641387039510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     }\n     public function addstory(Request $request)\n     {\n         $fileimage = $request->file('imagestory');\n-        $fileimage->move(base_path('\\modo\\images'), $fileimage->getClientOriginalName());\n+        $fileimage->move(public_path().\"/gambarstory/\", $fileimage->getClientOriginalName());\n         $filequotes = $request->file('imagestory');\n         $filequotes->move(base_path('\\modo\\images'), $filequotes->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n"
+                },
+                {
+                    "date": 1641387048942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     public function addstory(Request $request)\n     {\n         $fileimage = $request->file('imagestory');\n         $fileimage->move(public_path().\"/gambarstory/\", $fileimage->getClientOriginalName());\n-        $filequotes = $request->file('imagestory');\n+        $filequotes = $request->file('quotesstory');\n         $filequotes->move(base_path('\\modo\\images'), $filequotes->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n"
+                },
+                {
+                    "date": 1641387056110,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     {\n         $fileimage = $request->file('imagestory');\n         $fileimage->move(public_path().\"/gambarstory/\", $fileimage->getClientOriginalName());\n         $filequotes = $request->file('quotesstory');\n-        $filequotes->move(base_path('\\modo\\images'), $filequotes->getClientOriginalName());\n+        $filequotes->move(public_path().\"/gambarstory/\", $filequotes->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n"
+                },
+                {
+                    "date": 1641387079409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n-        $quotes = $request->quotesstory;\n+        $quotes = $request->$filequotes->getClientOriginalName();\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $image;\n"
+                },
+                {
+                    "date": 1641387085757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n         $image = $request->imagestory;\n-        $quotes = $request->$filequotes->getClientOriginalName();\n+        $quotes = $filequotes->getClientOriginalName();\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n         $addstory->image = $image;\n"
+                },
+                {
+                    "date": 1641387091940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n         $filequotes->move(public_path().\"/gambarstory/\", $filequotes->getClientOriginalName());\n         $title = $request->titlestory;\n         $country = $request->countrystory;\n         $city = $request->citystory;\n-        $image = $request->imagestory;\n+        $image = $fileimage->getClientOriginalName();\n         $quotes = $filequotes->getClientOriginalName();\n         $description = $request->descriptionstory;\n         $addstory = new Story;\n         $addstory->title = $title;\n"
+                },
+                {
+                    "date": 1641388258656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n      */\n     public function index()\n     {\n \n-        $allstory = Story::orderBy('id', 'desc')->paginate(3);\n+        $allstory = Story::orderBy('id', 'desc')->paginate(9);\n \n         return view('storylist', compact('allstory'));\n     }\n     public function addcommment(){\n@@ -53,11 +53,8 @@\n         $addstory->city = $city;\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n-     \n-\n-\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641388279548,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,12 @@\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n     }\n+    public function deletestory(Request $request)\n+    {\n+\n+    }\n   \n \n     /**\n      * Show the form for creating a new resource.\n"
+                },
+                {
+                    "date": 1641388518703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n         $addstory->save();\n     }\n     public function deletestory(Request $request)\n     {\n-\n+        $myid = $request->idbaris;\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641388535270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,8 +57,9 @@\n     }\n     public function deletestory(Request $request)\n     {\n         $myid = $request->idbaris;\n+        $story = Story:find();\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641388541519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n     }\n     public function deletestory(Request $request)\n     {\n         $myid = $request->idbaris;\n-        $story = Story:find();\n+        $story = Story::find($myid);\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641388872273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,8 +58,9 @@\n     public function deletestory(Request $request)\n     {\n         $myid = $request->idbaris;\n         $story = Story::find($myid);\n+        $story->delete();\n     }\n   \n \n     /**\n"
+                },
+                {
+                    "date": 1641394938106,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,12 @@\n         $addstory->description = $description;\n         $addstory->quotes = $quotes;\n         $addstory->save();\n     }\n+    public function editstory(Request $request)\n+    {\n+        \n+    }\n     public function deletestory(Request $request)\n     {\n         $myid = $request->idbaris;\n         $story = Story::find($myid);\n"
+                },
+                {
+                    "date": 1641394950049,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n         $city = $request->citystory;\n         $image = $fileimage->getClientOriginalName();\n         $quotes = $filequotes->getClientOriginalName();\n         $description = $request->descriptionstory;\n-        $story = Story::find($myid);\n+        $addstory = Story::find($myid);\n         $addstory->title = $title;\n         $addstory->image = $image;\n         $addstory->country = $country;\n         $addstory->caption = \" \";\n"
+                },
+                {
+                    "date": 1641395042395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,9 @@\n         $addstory->save();\n     }\n     public function editstory(Request $request)\n     {\n+        if\n         $fileimage = $request->file('imagestory');\n         $fileimage->move(public_path().\"/gambarstory/\", $fileimage->getClientOriginalName());\n         $filequotes = $request->file('quotesstory');\n         $filequotes->move(public_path().\"/gambarstory/\", $filequotes->getClientOriginalName());\n"
+                }
+            ],
+            "date": 1640873847829,
+            "name": "Commit-0",
+            "content": "<?php\n\nnamespace App\\Http\\Controllers;\n\nuse Illuminate\\Http\\Request;\n\nclass storycontroller extends Controller\n{\n    /**\n     * Display a listing of the resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function index()\n    {\n        \n    }\n\n    /**\n     * Show the form for creating a new resource.\n     *\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function create()\n    {\n        //\n    }\n\n    /**\n     * Store a newly created resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function store(Request $request)\n    {\n        //\n    }\n\n    /**\n     * Display the specified resource.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function show($id)\n    {\n        //\n    }\n\n    /**\n     * Show the form for editing the specified resource.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function edit($id)\n    {\n        //\n    }\n\n    /**\n     * Update the specified resource in storage.\n     *\n     * @param  \\Illuminate\\Http\\Request  $request\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function update(Request $request, $id)\n    {\n        //\n    }\n\n    /**\n     * Remove the specified resource from storage.\n     *\n     * @param  int  $id\n     * @return \\Illuminate\\Http\\Response\n     */\n    public function destroy($id)\n    {\n        //\n    }\n}\n"
+        }
+    ]
+}

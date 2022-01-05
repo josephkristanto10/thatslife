@@ -1,0 +1,22 @@
+{
+    "sourceFile": "app/Models/Story.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1641259411861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1641259423478,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n namespace App\\Models;\n \n use Carbon\\Carbon;\n use Illuminate\\Database\\Eloquent\\Model;\n+use BeyondCode\\Comments\\Traits\\HasComments;\n \n /**\n  * Class Story\n  * \n"
+                }
+            ],
+            "date": 1641259411861,
+            "name": "Commit-0",
+            "content": "<?php\n\n/**\n * Created by Reliese Model.\n */\n\nnamespace App\\Models;\n\nuse Carbon\\Carbon;\nuse Illuminate\\Database\\Eloquent\\Model;\n\n/**\n * Class Story\n * \n * @property int $id\n * @property string $title\n * @property string $image\n * @property string $caption\n * @property string $description\n * @property string $quotes\n * @property string|null $remember_token\n * @property Carbon|null $created_at\n * @property Carbon|null $updated_at\n *\n * @package App\\Models\n */\nclass Story extends Model\n{\n\tuse HasComments;\n\tprotected $table = 'story';\n\n\tprotected $hidden = [\n\t\t'remember_token'\n\t];\n\n\tprotected $fillable = [\n\t\t'title',\n\t\t'image',\n\t\t'caption',\n\t\t'description',\n\t\t'quotes',\n\t\t'remember_token'\n\t];\n}\n"
+        }
+    ]
+}
