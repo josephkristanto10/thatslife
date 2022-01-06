@@ -1,0 +1,18 @@
+{
+    "sourceFile": "config/flare.php",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1641483393649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1641483393649,
+            "name": "Commit-0",
+            "content": "<?php\n\nreturn [\n    /*\n    |\n    |--------------------------------------------------------------------------\n    | Flare API key\n    |--------------------------------------------------------------------------\n    |\n    | Specify Flare's API key below to enable error reporting to the service.\n    |\n    | More info: https://flareapp.io/docs/general/projects\n    |\n    */\n\n    'key' => env('FLARE_KEY'),\n\n    /*\n    |--------------------------------------------------------------------------\n    | Reporting Options\n    |--------------------------------------------------------------------------\n    |\n    | These options determine which information will be transmitted to Flare.\n    |\n    */\n\n    'reporting' => [\n        'anonymize_ips' => true,\n        'collect_git_information' => false,\n        'report_queries' => true,\n        'maximum_number_of_collected_queries' => 200,\n        'report_query_bindings' => true,\n        'report_view_data' => true,\n        'grouping_type' => null,\n    ],\n\n    /*\n    |--------------------------------------------------------------------------\n    | Reporting Log statements\n    |--------------------------------------------------------------------------\n    |\n    | If this setting is `false` log statements won't be send as events to Flare,\n    | no matter which error level you specified in the Flare log channel.\n    |\n    */\n\n    'send_logs_as_events' => false,\n];\n"
+        }
+    ]
+}
