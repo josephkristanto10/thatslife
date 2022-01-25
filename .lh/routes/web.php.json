@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 51,
+            "activePatchIndex": 54,
             "patches": [
                 {
                     "date": 1638263562078,
@@ -212,6 +212,18 @@
                 {
                     "date": 1641394924935,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,6 @@\n Route::get(\"/dashboard\",'admincontroller@indexdashboard')->name(\"gotodashboard\");\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n-Route::post('/editstory', 'storycontroller@Route::post('/editstory', 'storycontroller@deletestory')->name('deletestory');\n-')->name('deletestory');\n+Route::post('/editstory', 'storycontroller@editstory')->name('editstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641538932014,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,11 +12,9 @@\n | contains the \"web\" middleware group. Now create something great!\n |\n */\n \n-Route::get('/', function () {\n-    return view('index');\n-});\n+Route::get('/', 'storycontroller@indexmain');\n // Route::get('/liststory', function () {\n //     return view('storylist');\n // });\n // Route::get('/detailstory', function () {\n@@ -31,5 +29,6 @@\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n Route::post('/editstory', 'storycontroller@editstory')->name('editstory');\n+Route::post('/editstory', 'storycontroller@editstory')->name('filterstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641538938037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,6 @@\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n Route::post('/editstory', 'storycontroller@editstory')->name('editstory');\n-Route::post('/editstory', 'storycontroller@editstory')->name('filterstory');\n+Route::post('/filterstory', 'storycontroller@editstory')->name('filterstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
+                },
+                {
+                    "date": 1641539161880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,6 @@\n Route::get(\"daftarcerita\", \"admincontroller@indexliststory\");\n Route::post('/addstory', 'storycontroller@addstory')->name('addstory');\n Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');\n Route::post('/editstory', 'storycontroller@editstory')->name('editstory');\n-Route::post('/filterstory', 'storycontroller@editstory')->name('filterstory');\n+Route::post('/filterstory', 'storycontroller@filterstory')->name('filterstory');\n Route::get(\"getdatatablecerita\", \"admincontroller@getliststory\")->name('getdatatablecerita');\n"
                 }
             ],
             "date": 1638263562078,

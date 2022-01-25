@@ -450,7 +450,7 @@ quotesstoryedit.onchange = evt => {
             contentType: false,
             processData: false,
             success: function (result) {
-                alert(result);
+                // alert(result);
                 success();
                 Swal.fire({
                     title: 'Data Edited',

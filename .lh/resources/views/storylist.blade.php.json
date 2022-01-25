@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 617,
+            "activePatchIndex": 724,
             "patches": [
                 {
                     "date": 1639803735228,
@@ -2476,6 +2476,434 @@
                 {
                     "date": 1641261866106,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -386,11 +386,11 @@\n                                                         style=\"font-size:12px;text-align:justify;padding:5px;\">\r\n                                                         {{Str::limit($as->description,300)}} </p>\r\n                                                     <?php\r\n                                                     $urlid = $as->id;\r\n-                                                    $destination = URL::to('/detailstory/');\r\n+                                                    $destination = URL::to('/detailstory/'.$urlid);\r\n                                                     ?>\r\n-                                                    <a href=\"https:/detailstory/{{}}\" class=\"btn btn-primary\"\r\n+                                                    <a href=\"<?php echo $destination;?>\" class=\"btn btn-primary\"\r\n                                                         style=\"font-size:12px;background-color:#e3a405;border:0px solid black;\">Explore\r\n                                                         This Story &nbsp <i class=\"bi bi-send\"></i></a>\r\n                                                 </div>\r\n                                             </div>\r\n"
+                },
+                {
+                    "date": 1641534058786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -519,14 +519,9 @@\n                     </div>\r\n \r\n                 </div> -->\r\n \r\n-                <a href=\"#\" class=\"button button-full bg-color font-secondary center\"\r\n-                    style=\"padding: 60px 0; background-image: url('res/demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;\">\r\n-                    <div class=\"container clearfix\">\r\n-                        This is a Nella's Journey Story &rarr;\r\n-                    </div>\r\n-                </a>\r\n+         \r\n \r\n             </div>\r\n         </section>\r\n         <!-- #content end -->\r\n"
+                },
+                {
+                    "date": 1641534067567,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -519,9 +519,14 @@\n                     </div>\r\n \r\n                 </div> -->\r\n \r\n-         \r\n+                <a href=\"#\" class=\"button button-full bg-color font-secondary center\"\r\n+                    style=\"padding: 60px 0; background-image: url('res/demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;\">\r\n+                    <div class=\"container clearfix\">\r\n+                        This is a Nella's Journey Story &rarr;\r\n+                    </div>\r\n+                </a>\r\n \r\n             </div>\r\n         </section>\r\n         <!-- #content end -->\r\n"
+                },
+                {
+                    "date": 1641534074484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -519,12 +519,12 @@\n                     </div>\r\n \r\n                 </div> -->\r\n \r\n-                <a href=\"#\" class=\"button button-full bg-color font-secondary center\"\r\n+                <a  class=\"button button-full bg-color font-secondary center\"\r\n                     style=\"padding: 60px 0; background-image: url('res/demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;\">\r\n                     <div class=\"container clearfix\">\r\n-                        This is a Nella's Journey Story &rarr;\r\n+                        <!-- This is a Nella's Journey Story &rarr; -->\r\n                     </div>\r\n                 </a>\r\n \r\n             </div>\r\n"
+                },
+                {
+                    "date": 1641534117469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -272,9 +272,9 @@\n                                 <!-- <li class=\"menu-item\"><a class=\"menu-link\" href=\"#\" data-href=\"#myphoto\">My Photo</a></li> -->\r\n                                 <li class=\"menu-item\">\r\n                                     <a a href=\"#\" data-href=\"#mypost\" data-offset=\"0\" data-easing=\"easeInOutExpo\"\r\n                                         data-speed=\"1300\" class=\"button button-color reverse\"><i\r\n-                                            class=\"icon-calendar2\"></i> Story List</a>\r\n+                                        class=\"bi bi-brush\"></i>  Story List</a>\r\n                                 </li>\r\n                             </ul>\r\n \r\n                         </nav>\r\n"
+                },
+                {
+                    "date": 1641534356338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -344,8 +344,9 @@\n                                 ?>\r\n                                     <div class=\"col-md-4 card-container\">\r\n                                         <div class=\"card-flip\">\r\n                                             <div class=\"card front\">\r\n+                                            <?php $myassets =  asset('gambarstory/'.$as->image);?>\r\n                                                 <img src=\"{{asset('res/newimage/gedung.jpeg')}}\" style=\"height:250px;\"\r\n                                                     class=\"card-img-top img-fluid\">\r\n                                                 <div\r\n                                                     style=\"position:absolute;right:20px;top:20px;font-size:10px;font-weight:bold;background-color:#BF9456;color:white;border-radius:10px;width:125px;height:20px; padding-top:2px; \">\r\n"
+                },
+                {
+                    "date": 1641534365758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -345,9 +345,9 @@\n                                     <div class=\"col-md-4 card-container\">\r\n                                         <div class=\"card-flip\">\r\n                                             <div class=\"card front\">\r\n                                             <?php $myassets =  asset('gambarstory/'.$as->image);?>\r\n-                                                <img src=\"{{asset('res/newimage/gedung.jpeg')}}\" style=\"height:250px;\"\r\n+                                                <img src=\"  <?= $myassets ?>\" style=\"height:250px;\"\r\n                                                     class=\"card-img-top img-fluid\">\r\n                                                 <div\r\n                                                     style=\"position:absolute;right:20px;top:20px;font-size:10px;font-weight:bold;background-color:#BF9456;color:white;border-radius:10px;width:125px;height:20px; padding-top:2px; \">\r\n \r\n"
+                },
+                {
+                    "date": 1641534392977,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -364,9 +364,9 @@\n                                                             <span style=\"color:#3aa322 !important;font-size:13px;\"><img\r\n                                                                     class=\"bd-placeholder-img card-img-top\"\r\n                                                                     style=\"color:#3aa322;width:18px;height:18px;float:left;margin-top:6px;\"\r\n                                                                     src=\"{{asset('res/newimage/pin.png')}}\">\r\n-                                                                Jakarta, Indonesia<br></span>\r\n+                                                                    {{$as->city}}, {{$as->country}}<br></span>\r\n \r\n                                                         </div>\r\n \r\n                                                     </div>\r\n"
+                },
+                {
+                    "date": 1641534875218,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -531,8 +531,30 @@\n             </div>\r\n         </section>\r\n         <!-- #content end -->\r\n \r\n+        <!-- Modal FIlter -->\r\n+        <!-- Modal -->\r\n+<div class=\"modal fade\" id=\"exampleModalScrollable\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n+  <div class=\"modal-dialog modal-dialog-scrollable\" role=\"document\">\r\n+    <div class=\"modal-content\">\r\n+      <div class=\"modal-header\">\r\n+        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Modal title</h5>\r\n+        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n+          <span aria-hidden=\"true\">&times;</span>\r\n+        </button>\r\n+      </div>\r\n+      <div class=\"modal-body\">\r\n+        ...\r\n+      </div>\r\n+      <div class=\"modal-footer\">\r\n+        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n+        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\r\n+      </div>\r\n+    </div>\r\n+  </div>\r\n+</div>\r\n+\r\n         <!-- Footer\r\n \t\t============================================= -->\r\n         <footer id=\"footer\" class=\"dark\" style=\"background-color: #121212; padding: 60px 0\">\r\n \r\n"
+                },
+                {
+                    "date": 1641534893676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -422,9 +422,9 @@\n \r\n                     <br><br>\r\n \r\n                     <!-- FLoating Button -->\r\n-                    <a href=\"#\" class=\"float\" style=\"line-height:20px;padding-top:15px;z-index:50000;\">\r\n+                    <a href=\"#\" class=\"float\" style=\"line-height:20px;padding-top:15px;z-index:50000;\" data-toggle=\"modal\" data-target=\"#exampleModalScrollable\">\r\n \r\n                         <i class=\"bi bi-funnel-fill my-float\" style=\"font-size:25px !important;\"></i><br>\r\n                         <span style=\"margin-top:5px;font-size:15px !important;font-weight:bold;\">\r\n                             Filter\r\n"
+                },
+                {
+                    "date": 1641535003217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -533,9 +533,12 @@\n         <!-- #content end -->\r\n \r\n         <!-- Modal FIlter -->\r\n         <!-- Modal -->\r\n-<div class=\"modal fade\" id=\"exampleModalScrollable\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n+<div class=\"modal fade\" style = \"position: absolute;\r\n+  left: 50%;\r\n+  top: 50%;\r\n+  transform: translate(-50%, -50%);\" id=\"exampleModalScrollable\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n   <div class=\"modal-dialog modal-dialog-scrollable\" role=\"document\">\r\n     <div class=\"modal-content\">\r\n       <div class=\"modal-header\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Modal title</h5>\r\n"
+                },
+                {
+                    "date": 1641535023248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -533,12 +533,9 @@\n         <!-- #content end -->\r\n \r\n         <!-- Modal FIlter -->\r\n         <!-- Modal -->\r\n-<div class=\"modal fade\" style = \"position: absolute;\r\n-  left: 50%;\r\n-  top: 50%;\r\n-  transform: translate(-50%, -50%);\" id=\"exampleModalScrollable\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n+<div class=\"modal fade\" id=\"exampleModalScrollable\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n   <div class=\"modal-dialog modal-dialog-scrollable\" role=\"document\">\r\n     <div class=\"modal-content\">\r\n       <div class=\"modal-header\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Modal title</h5>\r\n"
+                },
+                {
+                    "date": 1641535045583,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -534,9 +534,12 @@\n \r\n         <!-- Modal FIlter -->\r\n         <!-- Modal -->\r\n <div class=\"modal fade\" id=\"exampleModalScrollable\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalScrollableTitle\" aria-hidden=\"true\">\r\n-  <div class=\"modal-dialog modal-dialog-scrollable\" role=\"document\">\r\n+  <div class=\"modal-dialog modal-dialog-scrollable\" role=\"document\" style = \"position: absolute;width:50%;\r\n+  left: 50%;\r\n+  top: 50%;\r\n+  transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n       <div class=\"modal-header\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Modal title</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n"
+                },
+                {
+                    "date": 1641535062949,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -540,9 +540,9 @@\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n       <div class=\"modal-header\">\r\n-        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Modal title</h5>\r\n+        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1641535122120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -539,9 +539,9 @@\n   left: 50%;\r\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n-      <div class=\"modal-header\">\r\n+      <div class=\"modal-header\" style = \"background-color:#0C9;\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1641535134994,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -539,9 +539,9 @@\n   left: 50%;\r\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n-      <div class=\"modal-header\" style = \"background-color:#0C9;\">\r\n+      <div class=\"modal-header\" style = \"background-color:#0C9;color:white;\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1641535140810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -539,9 +539,9 @@\n   left: 50%;\r\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n-      <div class=\"modal-header\" style = \"background-color:#0C9;color:white;\">\r\n+      <div class=\"modal-header\" style = \"background-color:#0C9;color:white;border-radius:5px;\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1641535153534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -539,9 +539,9 @@\n   left: 50%;\r\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n-      <div class=\"modal-header\" style = \"background-color:#0C9;color:white;border-radius:5px;\">\r\n+      <div class=\"modal-header\" style = \"background-color:#0C9;color:white !importnat;border-radius:5px;\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1641535173051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -539,9 +539,9 @@\n   left: 50%;\r\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n-      <div class=\"modal-header\" style = \"background-color:#0C9;color:white !importnat;border-radius:5px;\">\r\n+      <div class=\"modal-header\" style = \"background-color:#0C9;color:white !important;border-radius:5px;\">\r\n         <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n"
+                },
+                {
+                    "date": 1641535185968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -539,10 +539,10 @@\n   left: 50%;\r\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n-      <div class=\"modal-header\" style = \"background-color:#0C9;color:white !important;border-radius:5px;\">\r\n-        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\">Filter</h5>\r\n+      <div class=\"modal-header\" style = \"background-color:#0C9;border-radius:5px;\">\r\n+        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\" style = \"color:white !important;\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1641535203169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -540,9 +540,9 @@\n   top: 50%;\r\n   transform: translate(-50%, -50%);\" >\r\n     <div class=\"modal-content\">\r\n       <div class=\"modal-header\" style = \"background-color:#0C9;border-radius:5px;\">\r\n-        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\" style = \"color:white !important;\">Filter</h5>\r\n+        <h5 class=\"modal-title\" id=\"exampleModalScrollableTitle\" style = \"color:white !important;font-weight:bold;\">Filter</h5>\r\n         <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1641535218918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -550,9 +550,9 @@\n         ...\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n-        <button type=\"button\" class=\"btn btn-primary\">Save changes</button>\r\n+        <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9;\">Save changes</button>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </div>\r\n"
+                },
+                {
+                    "date": 1641535226326,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -550,9 +550,9 @@\n         ...\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n-        <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9;\">Save changes</button>\r\n+        <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </div>\r\n"
+                },
+                {
+                    "date": 1641535238500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -546,9 +546,9 @@\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n-        ...\r\n+       \r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n         <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n"
+                },
+                {
+                    "date": 1641535256932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -546,9 +546,9 @@\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n-       \r\n+      <label>Pilihan Tahun</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n         <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n"
+                },
+                {
+                    "date": 1641535281562,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -547,8 +547,10 @@\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun</label>\r\n+      <label>Pilihan Kota</label>\r\n+      <label>Pilihan Tahun</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n         <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n"
+                },
+                {
+                    "date": 1641535289277,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -548,9 +548,9 @@\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun</label>\r\n       <label>Pilihan Kota</label>\r\n-      <label>Pilihan Tahun</label>\r\n+      <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n         <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n"
+                },
+                {
+                    "date": 1641535295205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -547,10 +547,10 @@\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun</label>\r\n+      <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n-      <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n         <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n"
+                },
+                {
+                    "date": 1641535330914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,10 @@\n \r\n     <link rel=\"stylesheet\" href=\"{{asset('res/css/colors.php?color=BF9456')}}\" type=\"text/css\" />\r\n     <link rel=\"shortcut icon\" href=\"{{asset('res/newimage/lovetransparent.png')}}\" />\r\n     <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css\">\r\n+    <link href=\"https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css\" rel=\"stylesheet\" />\r\n+<script src=\"https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js\"></script>\r\n     <!-- Document Title\r\n \t============================================= -->\r\n     <title>Nella Life Story</title>\r\n \r\n@@ -547,8 +549,9 @@\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun</label>\r\n+      \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n"
+                },
+                {
+                    "date": 1641535344666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -265,9 +265,9 @@\n                             <ul class=\"menu-container one-page-menu\" data-easing=\"easeInOutExpo\" data-speed=\"1300\"\r\n                                 data-offset=\"0\">\r\n                                 <li class=\"menu-item active\"><a class=\"menu-link\" href=\"{{ url('/') }}\"\r\n                                         data-href=\"#wrapper\">Home</a></li>\r\n-                                <!-- <li class=\"menu-item\"><a class=\"menu-link\" href=\"#\" data-offset=\"56\" data-href=\"#about\">Story List</a></li> -->\r\n+                                <!-- <li class=\"menu-item\"><a clPilihaass=\"menu-link\" href=\"#\" data-offset=\"56\" data-href=\"#about\">Story List</a></li> -->\r\n                                 <!-- <li class=\"menu-item\"><a class=\"menu-link\" href=\"#\" data-href=\"#mypost\">My Post</a></li> -->\r\n                                 <li class=\"menu-item\"><a class=\"menu-link\" href=\"#\" data-href=\"#testimonial\">Quote\r\n                                         List</a></li>\r\n                                 <!-- <li class=\"menu-item\"><a class=\"menu-link\" href=\"#\" data-href=\"#testimonial\">Testimonial</a></li>-->\r\n"
+                },
+                {
+                    "date": 1641535362565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -549,9 +549,9 @@\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun</label>\r\n-      \r\n+      <select class=\"js-example-basic-single js-states form-control\" id=\"id_label_single\"></select>\r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n"
+                },
+                {
+                    "date": 1641535371601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -548,10 +548,12 @@\n           <span aria-hidden=\"true\">&times;</span>\r\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n-      <label>Pilihan Tahun</label>\r\n+      <label>Pilihan Tahun\r\n       <select class=\"js-example-basic-single js-states form-control\" id=\"id_label_single\"></select>\r\n+      </label>\r\n+   \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n"
+                },
+                {
+                    "date": 1641535414957,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -549,9 +549,9 @@\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n-      <select class=\"js-example-basic-single js-states form-control\" id=\"id_label_single\"></select>\r\n+      <select class=\"js-example-responsive\" id=\"id_label_single\"></select>\r\n       </label>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n"
+                },
+                {
+                    "date": 1641535426168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -638,8 +638,11 @@\n </body>\r\n \r\n </html>\r\n <script>\r\n+    $(\".js-example-responsive\").select2({\r\n+    width: 'resolve' // need to override the changed default\r\n+});\r\n     var i = 0;\r\n     var txt = 'Kiss Kiss From <br><h3>Nella</h3>';\r\n     var speed = 250;\r\n \r\n"
+                },
+                {
+                    "date": 1641535445054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -549,10 +549,11 @@\n         </button>\r\n       </div>\r\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n+    \r\n+      </label>\r\n       <select class=\"js-example-responsive\" id=\"id_label_single\"></select>\r\n-      </label>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1641535457871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -551,9 +551,9 @@\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n-      <select class=\"js-example-responsive\" id=\"id_label_single\"></select>\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\"></select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1641535528079,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,7 @@\n+<?php\r\n+<?php echo date(\"Y\"); ?>\r\n+?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n <head>\r\n@@ -551,9 +554,11 @@\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\"></select>\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+\r\n+      </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n"
+                },
+                {
+                    "date": 1641535540402,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-<?php\r\n-<?php echo date(\"Y\"); ?>\r\n+<?php \r\n+$tahun = date(\"Y\"); \r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535627446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n <?php \r\n+date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641535635018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n+$timestamp = strtotime('+6 years');\r\n+echo date('Y-m-d H:i:s', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535657015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-echo date('Y-m-d H:i:s', $timestamp);\r\n+$hasiltahun = date('200 H:i:s', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535669344,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('200 H:i:s', $timestamp);\r\n+$hasiltahun = date('2022 00:00:00', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535701729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('2022 00:00:00', $timestamp);\r\n+$hasiltahun = date('200 H:i:s', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535709231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('200 H:i:s', $timestamp);\r\n+$hasiltahun = date('2022', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535719614,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('2022', $timestamp);\r\n+$hasiltahun = date('2022-02-02 00:00:00', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535741517,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -334,9 +334,9 @@\n                     </div>\r\n                 </div>\r\n \r\n \r\n-\r\n+<?= $hasiltahun?>\r\n                 <center>\r\n                     <div style=\"width:80% !important;\">\r\n                         <div class=\"row\">\r\n                             <div class=\"container\">\r\n"
+                },
+                {
+                    "date": 1641535756394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -334,9 +334,9 @@\n                     </div>\r\n                 </div>\r\n \r\n \r\n-<?= $hasiltahun?>\r\n+<?= $hasiltahun;?>\r\n                 <center>\r\n                     <div style=\"width:80% !important;\">\r\n                         <div class=\"row\">\r\n                             <div class=\"container\">\r\n"
+                },
+                {
+                    "date": 1641535764788,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('2022-02-02 00:00:00', $timestamp);\r\n+$hasiltahun = date('Y-m-d', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535777481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('Y-m-d', $timestamp);\r\n+$hasiltahun = date('2020-02-02', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535788400,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('2020-02-02', $timestamp);\r\n+$hasiltahun = date('Y-m-d', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535805112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$hasiltahun = date('Y-m-d', $timestamp);\r\n+$hasiltahun = date('2022-01-07', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535888451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n+$mydate = date(\"2022-01-07\")\r\n $hasiltahun = date('2022-01-07', $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641535898623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = date(\"2022-01-07\")\r\n-$hasiltahun = date('2022-01-07', $timestamp);\r\n+$mydate = date(\"2022-01-07\");\r\n+$hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641535917594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = date(\"2022-01-07\");\r\n+$mydate = date(\"2022-1-7\");\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641535923200,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = date(\"2022-1-7\");\r\n+$mydate = date(\"2022-01-07\");\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641535934980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = date(\"2022-01-07\");\r\n+$mydate = date(\"Y-m-d\",\"2022-01-07\");\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641536000758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = date(\"Y-m-d\",\"2022-01-07\");\r\n+$mydate = new DateTime(\"2007-03-24\");\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641536065336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = new DateTime(\"2007-03-24\");\r\n+$mydate = new DateTime(\"2022-03-24\");\r\n+$tahunstart = 2021;\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641536072604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n $mydate = new DateTime(\"2022-03-24\");\r\n $tahunstart = 2021;\r\n+$tahunberakhir = date();\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641536105522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,10 @@\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n $mydate = new DateTime(\"2022-03-24\");\r\n $tahunstart = 2021;\r\n-$tahunberakhir = date();\r\n+$tahunberakhir = date(\"Y\");\r\n+$selisihtahun = $tahunberakhir - $tahunstart;\r\n $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641536112493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -338,9 +338,9 @@\n                     </div>\r\n                 </div>\r\n \r\n \r\n-<?= $hasiltahun;?>\r\n+<?= $selisihtahun;?>\r\n                 <center>\r\n                     <div style=\"width:80% !important;\">\r\n                         <div class=\"row\">\r\n                             <div class=\"container\">\r\n"
+                },
+                {
+                    "date": 1641536121323,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n $mydate = new DateTime(\"2022-03-24\");\r\n $tahunstart = 2021;\r\n $tahunberakhir = date(\"Y\");\r\n $selisihtahun = $tahunberakhir - $tahunstart;\r\n-$hasiltahun = date($mydate, $timestamp);\r\n+// $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n"
+                },
+                {
+                    "date": 1641536188321,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n <?php \r\n date_default_timezone_set(\"Asia/Bangkok\");\r\n $tahun = date(\"Y\"); \r\n $timestamp = strtotime('+6 years');\r\n-$mydate = new DateTime(\"2022-03-24\");\r\n+// $mydate = new DateTime(\"2022-03-24\");\r\n $tahunstart = 2021;\r\n $tahunberakhir = date(\"Y\");\r\n $selisihtahun = $tahunberakhir - $tahunstart;\r\n // $hasiltahun = date($mydate, $timestamp);\r\n@@ -338,9 +338,9 @@\n                     </div>\r\n                 </div>\r\n \r\n \r\n-<?= $selisihtahun;?>\r\n+\r\n                 <center>\r\n                     <div style=\"width:80% !important;\">\r\n                         <div class=\"row\">\r\n                             <div class=\"container\">\r\n@@ -562,9 +562,9 @@\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n-\r\n+      <?= $selisihtahun;?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n"
+                },
+                {
+                    "date": 1641536224973,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -562,9 +562,11 @@\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n-      <?= $selisihtahun;?>\r\n+      <?= for($i = 0 ; $i <= $selisihtahun; $i++){\r\n+          \r\n+      } \r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n"
+                },
+                {
+                    "date": 1641536242696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -562,11 +562,13 @@\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n-      <?= for($i = 0 ; $i <= $selisihtahun; $i++){\r\n-          \r\n-      } \r\n+      <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n+        ?>\r\n+\r\n+        <?php\r\n+      } ?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <label>Pilihan Kota</label>\r\n"
+                },
+                {
+                    "date": 1641536259534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -564,9 +564,9 @@\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n-\r\n+        <option value = \"\"></option>\r\n         <?php\r\n       } ?>\r\n       </select>\r\n    \r\n"
+                },
+                {
+                    "date": 1641536275334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -564,9 +564,9 @@\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n-        <option value = \"\"></option>\r\n+        <option value = \"\"><?= $tahunstart;?></option>\r\n         <?php\r\n       } ?>\r\n       </select>\r\n    \r\n"
+                },
+                {
+                    "date": 1641536283828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -566,8 +566,9 @@\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n         <option value = \"\"><?= $tahunstart;?></option>\r\n         <?php\r\n+        $tahunstart;\r\n       } ?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n"
+                },
+                {
+                    "date": 1641536303765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -564,11 +564,11 @@\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n-        <option value = \"\"><?= $tahunstart;?></option>\r\n+        <option value = \"<?= $tahunstart;?>\"><?= $tahunstart;?></option>\r\n         <?php\r\n-        $tahunstart;\r\n+        $tahunstart++;\r\n       } ?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n"
+                },
+                {
+                    "date": 1641536568549,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,10 @@\n // $mydate = new DateTime(\"2022-03-24\");\r\n $tahunstart = 2021;\r\n $tahunberakhir = date(\"Y\");\r\n $selisihtahun = $tahunberakhir - $tahunstart;\r\n+\r\n+\r\n // $hasiltahun = date($mydate, $timestamp);\r\n ?>\r\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n"
+                },
+                {
+                    "date": 1641536579502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -573,8 +573,9 @@\n       } ?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n"
+                },
+                {
+                    "date": 1641536586534,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,8 +574,9 @@\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+      </select>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n"
+                },
+                {
+                    "date": 1641536637390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,8 +574,11 @@\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+          @foreach($kota as $k)\r\n+           <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n+          @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n"
+                },
+                {
+                    "date": 1641536654051,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -579,8 +579,13 @@\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+          @foreach($kota as $k)\r\n+           <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n+          @endforeach\r\n+      </select>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n         <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n"
+                },
+                {
+                    "date": 1641536660873,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -573,9 +573,9 @@\n       } ?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n           @foreach($kota as $k)\r\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641536668984,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -575,13 +575,13 @@\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n           @foreach($kota as $k)\r\n-           <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n+           <option value = '{{$k->country}}'>{{$k->country}}</option>\r\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n           @foreach($kota as $k)\r\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641536674989,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -563,9 +563,9 @@\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n         <option value = \"<?= $tahunstart;?>\"><?= $tahunstart;?></option>\r\n         <?php\r\n@@ -579,9 +579,9 @@\n            <option value = '{{$k->country}}'>{{$k->country}}</option>\r\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"city\">\r\n           @foreach($kota as $k)\r\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641536880192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -563,9 +563,9 @@\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"year\">\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n         <option value = \"<?= $tahunstart;?>\"><?= $tahunstart;?></option>\r\n         <?php\r\n"
+                },
+                {
+                    "date": 1641536895926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,10 +574,10 @@\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n-          @foreach($kota as $k)\r\n-           <option value = '{{$k->country}}'>{{$k->country}}</option>\r\n+          @foreach($negara as $n)\r\n+           <option value = '{{$k->country}}'>{{$n->country}}</option>\r\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"city\">\r\n"
+                },
+                {
+                    "date": 1641536982723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,10 +574,11 @@\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n+      <option value = '{{$n->country}}'>{{$n->country}}</option>\r\n           @foreach($negara as $n)\r\n-           <option value = '{{$k->country}}'>{{$n->country}}</option>\r\n+           <option value = '{{$n->country}}'>{{$n->country}}</option>\r\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"city\">\r\n"
+                },
+                {
+                    "date": 1641536988613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,9 +574,9 @@\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n-      <option value = '{{$n->country}}'>{{$n->country}}</option>\r\n+      <option value = 'nofilter'>{{$n->country}}</option>\r\n           @foreach($negara as $n)\r\n            <option value = '{{$n->country}}'>{{$n->country}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641537004205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,9 +574,9 @@\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n-      <option value = 'nofilter'>{{$n->country}}</option>\r\n+      <option value = 'nofilter'>Show All Country</option>\r\n           @foreach($negara as $n)\r\n            <option value = '{{$n->country}}'>{{$n->country}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641537009925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -564,8 +564,9 @@\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"year\">\r\n+      <option value = 'nofilter'>Show All Country</option>\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n         <option value = \"<?= $tahunstart;?>\"><?= $tahunstart;?></option>\r\n         <?php\r\n"
+                },
+                {
+                    "date": 1641537017563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -564,9 +564,9 @@\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"year\">\r\n-      <option value = 'nofilter'>Show All Country</option>\r\n+      <option value = 'nofilter'>Show All Year</option>\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n         <option value = \"<?= $tahunstart;?>\"><?= $tahunstart;?></option>\r\n         <?php\r\n@@ -582,8 +582,9 @@\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"city\">\r\n+      <option value = 'nofilter'>Show All Country</option>\r\n           @foreach($kota as $k)\r\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641537028157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -582,9 +582,9 @@\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n       <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"city\">\r\n-      <option value = 'nofilter'>Show All Country</option>\r\n+      <option value = 'nofilter'>Show All City</option>\r\n           @foreach($kota as $k)\r\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n       </select>\r\n"
+                },
+                {
+                    "date": 1641537236751,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -686,8 +686,12 @@\n             setTimeout(typeWriter, speed);\r\n         }\r\n     };\r\n \r\n+    function filter(){\r\n+        \r\n+    }\r\n+\r\n     // function showimage(x){\r\n \r\n     //     $(\"#kotakdetail\").css(\"display\",'block');\r\n \r\n"
+                },
+                {
+                    "date": 1641538783186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -563,9 +563,9 @@\n       <div class=\"modal-body\">\r\n       <label>Pilihan Tahun\r\n     \r\n       </label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"year\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"years\" name = \"year\">\r\n       <option value = 'nofilter'>Show All Year</option>\r\n       <?php for($i = 0 ; $i <= $selisihtahun; $i++){\r\n         ?>\r\n         <option value = \"<?= $tahunstart;?>\"><?= $tahunstart;?></option>\r\n@@ -687,9 +687,9 @@\n         }\r\n     };\r\n \r\n     function filter(){\r\n-        \r\n+\r\n     }\r\n \r\n     // function showimage(x){\r\n \r\n"
+                },
+                {
+                    "date": 1641538812564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -574,16 +574,16 @@\n       } ?>\r\n       </select>\r\n    \r\n       <label>Pilihan Negara</label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"country\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"countrys\" name = \"country\">\r\n       <option value = 'nofilter'>Show All Country</option>\r\n           @foreach($negara as $n)\r\n            <option value = '{{$n->country}}'>{{$n->country}}</option>\r\n           @endforeach\r\n       </select>\r\n       <label>Pilihan Kota</label>\r\n-      <select class=\"js-example-responsive form-control\" id=\"id_label_single\" name = \"city\">\r\n+      <select class=\"js-example-responsive form-control\" id=\"citys\" name = \"city\">\r\n       <option value = 'nofilter'>Show All City</option>\r\n           @foreach($kota as $k)\r\n            <option value = '{{$k->city}}'>{{$k->city}}</option>\r\n           @endforeach\r\n"
+                },
+                {
+                    "date": 1641538819762,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -687,9 +687,11 @@\n         }\r\n     };\r\n \r\n     function filter(){\r\n-\r\n+        years\r\n+countrys\r\n+citys\r\n     }\r\n \r\n     // function showimage(x){\r\n \r\n"
+                },
+                {
+                    "date": 1641538849673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -687,9 +687,11 @@\n         }\r\n     };\r\n \r\n     function filter(){\r\n-        years\r\n+        var tahun = $(\"#years\").val();\r\n+        var tahun = $(\"#years\").val();\r\n+        var tahun = $(\"#years\").val();\r\n countrys\r\n citys\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1641538862958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -688,12 +688,12 @@\n     };\r\n \r\n     function filter(){\r\n         var tahun = $(\"#years\").val();\r\n-        var tahun = $(\"#years\").val();\r\n-        var tahun = $(\"#years\").val();\r\n-countrys\r\n-citys\r\n+        var negara = $(\"#countrys\").val();\r\n+        var kota = $(\"#citys\").val();\r\n+\r\n+\r\n     }\r\n \r\n     // function showimage(x){\r\n \r\n"
+                },
+                {
+                    "date": 1641538899675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -691,9 +691,39 @@\n         var tahun = $(\"#years\").val();\r\n         var negara = $(\"#countrys\").val();\r\n         var kota = $(\"#citys\").val();\r\n \r\n+        $.ajaxSetup({\r\n+            headers: {\r\n+                'X-CSRF-TOKEN': $('meta[name=\"csrf-token\"]').attr('content')\r\n+            }\r\n+        });\r\n+        $.ajax({\r\n+            url: \"{{route('editstory')}}\",\r\n+            method: 'POST',\r\n+            data: formData,\r\n+            contentType: false,\r\n+            processData: false,\r\n+            success: function (result) {\r\n+                // alert(result);\r\n+                success();\r\n+                Swal.fire({\r\n+                    title: 'Data Edited',\r\n+                    text: 'Data Edited Successfully',\r\n+                    icon: 'success',\r\n+                    confirmButtonColor: '#53d408',\r\n+                    allowOutsideClick: false,\r\n+                }).then((results) => {\r\n+                  \r\n+                    $(\"#gambarpreviewlast\").attr(\"src\", \"\");\r\n+        $(\"#quotespreviewlast \").attr(\"src\", \"\");\r\n+        \r\n \r\n+                    $(\"#formedit\").trigger(\"reset\");\r\n+                    $(\"#closeformedit\").click();\r\n+                });\r\n+            }\r\n+        });\r\n     }\r\n \r\n     // function showimage(x){\r\n \r\n"
+                },
+                {
+                    "date": 1641539872816,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -697,9 +697,9 @@\n                 'X-CSRF-TOKEN': $('meta[name=\"csrf-token\"]').attr('content')\r\n             }\r\n         });\r\n         $.ajax({\r\n-            url: \"{{route('editstory')}}\",\r\n+            url: \"{{route('Request')}}\",\r\n             method: 'POST',\r\n             data: formData,\r\n             contentType: false,\r\n             processData: false,\r\n"
+                },
+                {
+                    "date": 1641539878673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -699,9 +699,11 @@\n         });\r\n         $.ajax({\r\n             url: \"{{route('Request')}}\",\r\n             method: 'POST',\r\n-            data: formData,\r\n+            data: {\r\n+                \r\n+            },\r\n             contentType: false,\r\n             processData: false,\r\n             success: function (result) {\r\n                 // alert(result);\r\n"
+                },
+                {
+                    "date": 1641539889286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -700,9 +700,11 @@\n         $.ajax({\r\n             url: \"{{route('Request')}}\",\r\n             method: 'POST',\r\n             data: {\r\n-                \r\n+                pilihantahun : tahun,\r\n+                pilihantahun : tahun,\r\n+                pilihantahun : tahun,\r\n             },\r\n             contentType: false,\r\n             processData: false,\r\n             success: function (result) {\r\n"
+                },
+                {
+                    "date": 1641539897026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -701,10 +701,10 @@\n             url: \"{{route('Request')}}\",\r\n             method: 'POST',\r\n             data: {\r\n                 pilihantahun : tahun,\r\n-                pilihantahun : tahun,\r\n-                pilihantahun : tahun,\r\n+                pilihankota : kota,\r\n+                pilihantahun : negara,\r\n             },\r\n             contentType: false,\r\n             processData: false,\r\n             success: function (result) {\r\n"
+                },
+                {
+                    "date": 1641539903576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -702,12 +702,10 @@\n             method: 'POST',\r\n             data: {\r\n                 pilihantahun : tahun,\r\n                 pilihankota : kota,\r\n-                pilihantahun : negara,\r\n-            },\r\n-            contentType: false,\r\n-            processData: false,\r\n+                pilihannegara : negara,\r\n+            }\r\n             success: function (result) {\r\n                 // alert(result);\r\n                 success();\r\n                 Swal.fire({\r\n"
+                },
+                {
+                    "date": 1641539911901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -705,25 +705,25 @@\n                 pilihankota : kota,\r\n                 pilihannegara : negara,\r\n             }\r\n             success: function (result) {\r\n-                // alert(result);\r\n-                success();\r\n-                Swal.fire({\r\n-                    title: 'Data Edited',\r\n-                    text: 'Data Edited Successfully',\r\n-                    icon: 'success',\r\n-                    confirmButtonColor: '#53d408',\r\n-                    allowOutsideClick: false,\r\n-                }).then((results) => {\r\n+                console.log(result);\r\n+        //         success();\r\n+        //         Swal.fire({\r\n+        //             title: 'Data Edited',\r\n+        //             text: 'Data Edited Successfully',\r\n+        //             icon: 'success',\r\n+        //             confirmButtonColor: '#53d408',\r\n+        //             allowOutsideClick: false,\r\n+        //         }).then((results) => {\r\n                   \r\n-                    $(\"#gambarpreviewlast\").attr(\"src\", \"\");\r\n-        $(\"#quotespreviewlast \").attr(\"src\", \"\");\r\n+        //             $(\"#gambarpreviewlast\").attr(\"src\", \"\");\r\n+        // $(\"#quotespreviewlast \").attr(\"src\", \"\");\r\n         \r\n \r\n-                    $(\"#formedit\").trigger(\"reset\");\r\n-                    $(\"#closeformedit\").click();\r\n-                });\r\n+        //             $(\"#formedit\").trigger(\"reset\");\r\n+        //             $(\"#closeformedit\").click();\r\n+        //         });\r\n             }\r\n         });\r\n     }\r\n \r\n"
+                },
+                {
+                    "date": 1641539929515,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -590,9 +590,9 @@\n       </select>\r\n       </div>\r\n       <div class=\"modal-footer\">\r\n         <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Close</button>\r\n-        <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\">Filter</button>\r\n+        <button type=\"button\" class=\"btn btn-primary\" style = \"background-color:#0C9 !important;\" onclick = \"filter()\">Filter</button>\r\n       </div>\r\n     </div>\r\n   </div>\r\n </div>\r\n"
+                },
+                {
+                    "date": 1641539973701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -697,9 +697,9 @@\n                 'X-CSRF-TOKEN': $('meta[name=\"csrf-token\"]').attr('content')\r\n             }\r\n         });\r\n         $.ajax({\r\n-            url: \"{{route('Request')}}\",\r\n+            url: \"{{route('filterstory')}}\",\r\n             method: 'POST',\r\n             data: {\r\n                 pilihantahun : tahun,\r\n                 pilihankota : kota,\r\n"
+                },
+                {
+                    "date": 1641540005270,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -702,9 +702,9 @@\n             method: 'POST',\r\n             data: {\r\n                 pilihantahun : tahun,\r\n                 pilihankota : kota,\r\n-                pilihannegara : negara,\r\n+                pilihannegara : negara\r\n             }\r\n             success: function (result) {\r\n                 console.log(result);\r\n         //         success();\r\n"
+                },
+                {
+                    "date": 1641540279077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -703,9 +703,9 @@\n             data: {\r\n                 pilihantahun : tahun,\r\n                 pilihankota : kota,\r\n                 pilihannegara : negara\r\n-            }\r\n+            },\r\n             success: function (result) {\r\n                 console.log(result);\r\n         //         success();\r\n         //         Swal.fire({\r\n"
+                },
+                {
+                    "date": 1641540364180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n <!DOCTYPE html>\r\n <html dir=\"ltr\" lang=\"en-US\">\r\n \r\n <head>\r\n-\r\n+<meta name=\"csrf-token\" content=\"{{ csrf_token() }}\" />\r\n     <meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />\r\n     <meta name=\"author\" content=\"SemiColonWeb\" />\r\n \r\n     <!-- Stylesheets\r\n"
+                },
+                {
+                    "date": 1641541338643,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -344,9 +344,9 @@\n \r\n                 <center>\r\n                     <div style=\"width:80% !important;\">\r\n                         <div class=\"row\">\r\n-                            <div class=\"container\">\r\n+                            <div class=\"container\" id = \"mycontainer\">\r\n                                 <?php\r\n \r\n                                 $index = 1;\r\n \r\n"
+                },
+                {
+                    "date": 1641541358948,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -705,8 +705,9 @@\n                 pilihankota : kota,\r\n                 pilihannegara : negara\r\n             },\r\n             success: function (result) {\r\n+                $(\"#mycontainer\").html(\" \");\r\n                 console.log(result);\r\n         //         success();\r\n         //         Swal.fire({\r\n         //             title: 'Data Edited',\r\n"
+                },
+                {
+                    "date": 1641541364682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -706,8 +706,9 @@\n                 pilihannegara : negara\r\n             },\r\n             success: function (result) {\r\n                 $(\"#mycontainer\").html(\" \");\r\n+                $(\"#mycontainer\").html(\" \");\r\n                 console.log(result);\r\n         //         success();\r\n         //         Swal.fire({\r\n         //             title: 'Data Edited',\r\n"
+                },
+                {
+                    "date": 1641541376444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -706,9 +706,9 @@\n                 pilihannegara : negara\r\n             },\r\n             success: function (result) {\r\n                 $(\"#mycontainer\").html(\" \");\r\n-                $(\"#mycontainer\").html(\" \");\r\n+                $(\"#mycontainer\").html(result);\r\n                 console.log(result);\r\n         //         success();\r\n         //         Swal.fire({\r\n         //             title: 'Data Edited',\r\n"
+                },
+                {
+                    "date": 1641541382482,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -707,9 +707,9 @@\n             },\r\n             success: function (result) {\r\n                 $(\"#mycontainer\").html(\" \");\r\n                 $(\"#mycontainer\").html(result);\r\n-                console.log(result);\r\n+                // console.log(result);\r\n         //         success();\r\n         //         Swal.fire({\r\n         //             title: 'Data Edited',\r\n         //             text: 'Data Edited Successfully',\r\n"
                 }
             ],
             "date": 1639803735228,

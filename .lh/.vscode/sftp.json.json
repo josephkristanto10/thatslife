@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 18,
             "patches": [
                 {
                     "date": 1639561575748,
@@ -24,6 +24,62 @@
                 {
                     "date": 1639561646503,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,7 @@\n     \"port\": 21,\n     \"username\": \"rumahm10\",\n     \"password\": \"griyaevo123\",\n     \"remotePath\": \"/public_html/\",\n-    \"uploadOnSave\": true\n-}\n-{\n-    \"name\": \"ftp.griyamu.com\",\n-    \"host\": \"103.163.138.3\",\n-    \"protocol\": \"ftp\",\n-    \"port\": 21,\n-    \"username\": \"rumahm10\",\n-    \"password\": \"griyaevo123\",\n-    \"remotePath\": \"/\",\n-    \"uploadOnSave\": true\n+    \"uploadOnSave\": true,\n+    \"downloadOnOpen\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077223034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n {\n-    \"name\": \"ftp.griyamu.com\",\n-    \"host\": \"103.163.138.3\",\n-    \"protocol\": \"ftp\",\n-    \"port\": 21,\n-    \"username\": \"rumahm10\",\n-    \"password\": \"griyaevo123\",\n-    \"remotePath\": \"/public_html/\",\n-    \"uploadOnSave\": true,\n-    \"downloadOnOpen\": true\n+    \"name\": \"My Server\",\n+    \"host\": \"localhost\",\n+    \"protocol\": \"sftp\",\n+    \"port\": 22,\n+    \"username\": \"admin@thatslife.id\",\n+    \"remotePath\": \"/\",\n+    \"uploadOnSave\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077233282,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,8 @@\n     \"host\": \"localhost\",\n     \"protocol\": \"sftp\",\n     \"port\": 22,\n     \"username\": \"admin@thatslife.id\",\n+    \"username\": \"admin@thatslife.id\",\n     \"remotePath\": \"/\",\n     \"uploadOnSave\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077242594,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,8 @@\n     \"host\": \"localhost\",\n     \"protocol\": \"sftp\",\n     \"port\": 22,\n     \"username\": \"admin@thatslife.id\",\n-    \"username\": \"admin@thatslife.id\",\n+    \"password\": \"adminthatslife.id\",\n     \"remotePath\": \"/\",\n     \"uploadOnSave\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077250687,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n     \"protocol\": \"sftp\",\n     \"port\": 22,\n     \"username\": \"admin@thatslife.id\",\n     \"password\": \"adminthatslife.id\",\n-    \"remotePath\": \"/\",\n+    \"remotePath\": \"/public_html/\",\n     \"uploadOnSave\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077279443,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {\n     \"name\": \"My Server\",\n-    \"host\": \"localhost\",\n+    \"host\": \"203.175.8.85\",\n     \"protocol\": \"sftp\",\n     \"port\": 22,\n     \"username\": \"admin@thatslife.id\",\n     \"password\": \"adminthatslife.id\",\n"
+                },
+                {
+                    "date": 1643077296199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n {\n     \"name\": \"My Server\",\n     \"host\": \"203.175.8.85\",\n-    \"protocol\": \"sftp\",\n-    \"port\": 22,\n+    \"protocol\": \"ftp\",\n+    \"port\": 21,\n     \"username\": \"admin@thatslife.id\",\n     \"password\": \"adminthatslife.id\",\n     \"remotePath\": \"/public_html/\",\n     \"uploadOnSave\": true\n"
+                },
+                {
+                    "date": 1643077326931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,7 +4,7 @@\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n     \"username\": \"admin@thatslife.id\",\n     \"password\": \"adminthatslife.id\",\n-    \"remotePath\": \"/public_html/\",\n+    \"remotePath\": \"/home/that4799/public_html\",\n     \"uploadOnSave\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077369611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n {\n-    \"name\": \"My Server\",\n+    \"name\": \"admin@thatslife.id\",\n     \"host\": \"203.175.8.85\",\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n     \"username\": \"admin@thatslife.id\",\n"
+                },
+                {
+                    "date": 1643077378827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,7 @@\n     \"port\": 21,\n     \"username\": \"admin@thatslife.id\",\n     \"password\": \"adminthatslife.id\",\n     \"remotePath\": \"/home/that4799/public_html\",\n-    \"uploadOnSave\": true\n+    \"uploadOnSave\": true,\n+    \"downloadOnOpen\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077393157,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n     \"name\": \"admin@thatslife.id\",\n     \"host\": \"203.175.8.85\",\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n-    \"username\": \"admin@thatslife.id\",\n+    \"username\": \"that4799\",\n     \"password\": \"adminthatslife.id\",\n     \"remotePath\": \"/home/that4799/public_html\",\n     \"uploadOnSave\": true,\n     \"downloadOnOpen\": true\n"
+                },
+                {
+                    "date": 1643077398644,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"host\": \"203.175.8.85\",\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n     \"username\": \"that4799\",\n-    \"password\": \"adminthatslife.id\",\n+    \"password\": \"rSmwUhduMfJh18 \",\n     \"remotePath\": \"/home/that4799/public_html\",\n     \"uploadOnSave\": true,\n     \"downloadOnOpen\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077407808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n     \"host\": \"203.175.8.85\",\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n     \"username\": \"that4799\",\n-    \"password\": \"rSmwUhduMfJh18 \",\n+    \"password\": \"rSmwUhduMfJh18\",\n     \"remotePath\": \"/home/that4799/public_html\",\n     \"uploadOnSave\": true,\n     \"downloadOnOpen\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077435528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n     \"username\": \"that4799\",\n     \"password\": \"rSmwUhduMfJh18\",\n-    \"remotePath\": \"/home/that4799/public_html\",\n+    \"remotePath\": \"/public_html\" / ,\n     \"uploadOnSave\": true,\n     \"downloadOnOpen\": true\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1643077440679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,8 @@\n     \"protocol\": \"ftp\",\n     \"port\": 21,\n     \"username\": \"that4799\",\n     \"password\": \"rSmwUhduMfJh18\",\n-    \"remotePath\": \"/public_html\" / ,\n+    \"remotePath\": \"/public_html/\",\n     \"uploadOnSave\": true,\n     \"downloadOnOpen\": true\n }\n\\ No newline at end of file\n"
                 }
             ],
             "date": 1639561575748,

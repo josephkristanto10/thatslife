@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'storycontroller@indexmain');
 // Route::get('/liststory', function () {
 //     return view('storylist');
 // });
@@ -32,4 +30,5 @@ Route::get("daftarcerita", "admincontroller@indexliststory");
 Route::post('/addstory', 'storycontroller@addstory')->name('addstory');
 Route::post('/deletestory', 'storycontroller@deletestory')->name('deletestory');
 Route::post('/editstory', 'storycontroller@editstory')->name('editstory');
+Route::post('/filterstory', 'storycontroller@filterstory')->name('filterstory');
 Route::get("getdatatablecerita", "admincontroller@getliststory")->name('getdatatablecerita');

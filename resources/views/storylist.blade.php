@@ -1,8 +1,20 @@
+<?php 
+date_default_timezone_set("Asia/Bangkok");
+$tahun = date("Y"); 
+$timestamp = strtotime('+6 years');
+// $mydate = new DateTime("2022-03-24");
+$tahunstart = 2021;
+$tahunberakhir = date("Y");
+$selisihtahun = $tahunberakhir - $tahunstart;
+
+
+// $hasiltahun = date($mydate, $timestamp);
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
 
 <head>
-
+<meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="SemiColonWeb" />
 
@@ -33,6 +45,8 @@
     <link rel="stylesheet" href="{{asset('res/css/colors.php?color=BF9456')}}" type="text/css" />
     <link rel="shortcut icon" href="{{asset('res/newimage/lovetransparent.png')}}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- Document Title
 	============================================= -->
     <title>Nella Life Story</title>
@@ -264,7 +278,7 @@
                                 data-offset="0">
                                 <li class="menu-item active"><a class="menu-link" href="{{ url('/') }}"
                                         data-href="#wrapper">Home</a></li>
-                                <!-- <li class="menu-item"><a class="menu-link" href="#" data-offset="56" data-href="#about">Story List</a></li> -->
+                                <!-- <li class="menu-item"><a clPilihaass="menu-link" href="#" data-offset="56" data-href="#about">Story List</a></li> -->
                                 <!-- <li class="menu-item"><a class="menu-link" href="#" data-href="#mypost">My Post</a></li> -->
                                 <li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">Quote
                                         List</a></li>
@@ -273,7 +287,7 @@
                                 <li class="menu-item">
                                     <a a href="#" data-href="#mypost" data-offset="0" data-easing="easeInOutExpo"
                                         data-speed="1300" class="button button-color reverse"><i
-                                            class="icon-calendar2"></i> Story List</a>
+                                        class="bi bi-brush"></i>  Story List</a>
                                 </li>
                             </ul>
 
@@ -331,7 +345,7 @@
                 <center>
                     <div style="width:80% !important;">
                         <div class="row">
-                            <div class="container">
+                            <div class="container" id = "mycontainer">
                                 <?php
 
                                 $index = 1;
@@ -345,7 +359,8 @@
                                     <div class="col-md-4 card-container">
                                         <div class="card-flip">
                                             <div class="card front">
-                                                <img src="{{asset('res/newimage/gedung.jpeg')}}" style="height:250px;"
+                                            <?php $myassets =  asset('gambarstory/'.$as->image);?>
+                                                <img src="  <?= $myassets ?>" style="height:250px;"
                                                     class="card-img-top img-fluid">
                                                 <div
                                                     style="position:absolute;right:20px;top:20px;font-size:10px;font-weight:bold;background-color:#BF9456;color:white;border-radius:10px;width:125px;height:20px; padding-top:2px; ">
@@ -364,7 +379,7 @@
                                                                     class="bd-placeholder-img card-img-top"
                                                                     style="color:#3aa322;width:18px;height:18px;float:left;margin-top:6px;"
                                                                     src="{{asset('res/newimage/pin.png')}}">
-                                                                Jakarta, Indonesia<br></span>
+                                                                    {{$as->city}}, {{$as->country}}<br></span>
 
                                                         </div>
 
@@ -422,7 +437,7 @@
                     <br><br>
 
                     <!-- FLoating Button -->
-                    <a href="#" class="float" style="line-height:20px;padding-top:15px;z-index:50000;">
+                    <a href="#" class="float" style="line-height:20px;padding-top:15px;z-index:50000;" data-toggle="modal" data-target="#exampleModalScrollable">
 
                         <i class="bi bi-funnel-fill my-float" style="font-size:25px !important;"></i><br>
                         <span style="margin-top:5px;font-size:15px !important;font-weight:bold;">
@@ -520,16 +535,67 @@
 
                 </div> -->
 
-                <a href="#" class="button button-full bg-color font-secondary center"
+                <a  class="button button-full bg-color font-secondary center"
                     style="padding: 60px 0; background-image: url('res/demos/barber/images/sections/4.jpg'); background-repeat: no-repeat; background-position: 10% 50%; background-size: cover;">
                     <div class="container clearfix">
-                        This is a Nella's Journey Story &rarr;
+                        <!-- This is a Nella's Journey Story &rarr; -->
                     </div>
                 </a>
 
             </div>
         </section>
         <!-- #content end -->
+
+        <!-- Modal FIlter -->
+        <!-- Modal -->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable" role="document" style = "position: absolute;width:50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);" >
+    <div class="modal-content">
+      <div class="modal-header" style = "background-color:#0C9;border-radius:5px;">
+        <h5 class="modal-title" id="exampleModalScrollableTitle" style = "color:white !important;font-weight:bold;">Filter</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <label>Pilihan Tahun
+    
+      </label>
+      <select class="js-example-responsive form-control" id="years" name = "year">
+      <option value = 'nofilter'>Show All Year</option>
+      <?php for($i = 0 ; $i <= $selisihtahun; $i++){
+        ?>
+        <option value = "<?= $tahunstart;?>"><?= $tahunstart;?></option>
+        <?php
+        $tahunstart++;
+      } ?>
+      </select>
+   
+      <label>Pilihan Negara</label>
+      <select class="js-example-responsive form-control" id="countrys" name = "country">
+      <option value = 'nofilter'>Show All Country</option>
+          @foreach($negara as $n)
+           <option value = '{{$n->country}}'>{{$n->country}}</option>
+          @endforeach
+      </select>
+      <label>Pilihan Kota</label>
+      <select class="js-example-responsive form-control" id="citys" name = "city">
+      <option value = 'nofilter'>Show All City</option>
+          @foreach($kota as $k)
+           <option value = '{{$k->city}}'>{{$k->city}}</option>
+          @endforeach
+      </select>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" style = "background-color:#0C9 !important;" onclick = "filter()">Filter</button>
+      </div>
+    </div>
+  </div>
+</div>
 
         <!-- Footer
 		============================================= -->
@@ -606,6 +672,9 @@
 
 </html>
 <script>
+    $(".js-example-responsive").select2({
+    width: 'resolve' // need to override the changed default
+});
     var i = 0;
     var txt = 'Kiss Kiss From <br><h3>Nella</h3>';
     var speed = 250;
@@ -617,6 +686,48 @@
             setTimeout(typeWriter, speed);
         }
     };
+
+    function filter(){
+        var tahun = $("#years").val();
+        var negara = $("#countrys").val();
+        var kota = $("#citys").val();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "{{route('filterstory')}}",
+            method: 'POST',
+            data: {
+                pilihantahun : tahun,
+                pilihankota : kota,
+                pilihannegara : negara
+            },
+            success: function (result) {
+                $("#mycontainer").html(" ");
+                $("#mycontainer").html(result);
+                // console.log(result);
+        //         success();
+        //         Swal.fire({
+        //             title: 'Data Edited',
+        //             text: 'Data Edited Successfully',
+        //             icon: 'success',
+        //             confirmButtonColor: '#53d408',
+        //             allowOutsideClick: false,
+        //         }).then((results) => {
+                  
+        //             $("#gambarpreviewlast").attr("src", "");
+        // $("#quotespreviewlast ").attr("src", "");
+        
+
+        //             $("#formedit").trigger("reset");
+        //             $("#closeformedit").click();
+        //         });
+            }
+        });
+    }
 
     // function showimage(x){
 

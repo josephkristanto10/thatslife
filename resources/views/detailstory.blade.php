@@ -267,9 +267,9 @@
                                 <!-- <li class="menu-item"><a class="menu-link" href="#" data-href="#testimonial">Testimonial</a></li>-->
                                 <!-- <li class="menu-item"><a class="menu-link" href="#" data-href="#myphoto">My Photo</a></li> -->
                                 <li class="menu-item">
-                                    <a a href="#" data-href="#mypost" data-offset="0" data-easing="easeInOutExpo"
+                                    <a a href="{{url('/liststory')}}" data-href="#mypost" data-offset="0" data-easing="easeInOutExpo"
                                         data-speed="1300" class="button button-color reverse"><i
-                                            class="icon-calendar2"></i> Story List</a>
+                                        class="bi bi-brush"></i> Story List</a>
                                 </li>
                             </ul>
 
@@ -295,7 +295,7 @@
 
                 <!-- About Section
 				============================================= -->
-                <div id="about" class="section m-0 bg-transparent page-section" style="padding: 10px 0">
+                <div id="about" class="section m-0 bg-transparent page-section" style="padding: 0px 0">
                     <div class="container clearfix">
                         <div class="row clearfix">
                             <!-- <div class="col-md-3 col-6 d-none d-md-block">
@@ -332,9 +332,10 @@
                                 <div class="card" style="height:100%;position:relative;">
 
                                     <div style="width:100%; text-align:justify !important;padding-right:10px;">
-                                        <img src="{{asset('res/newimage/sunset.jpeg')}}"
-                                            style="margin-right:20px;float:left;width:500px;height:350px;border:15px solid white;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-                                        <br><br> <span
+                                    <?php $myassets =  asset('gambarstory/'.$story->image);?>
+                                        <img src="<?=$myassets?>"
+                                            style="margin-right:20px;float:left;width:500px;height:450px;border:15px solid white;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                        <br><br> <br><span
                                             style="font-size :55px;font-weight:bold;padding-left:10px;line-height:50px;;padding-top:20px;color:#303030;padding-left:10px !important;line-height:30px;">
                                             Holla <span style="font-size:35px;color:#BF9456;"> Reader</span>,<br>
                                             <div style="text-align:left;padding-left:20px;"> <span
@@ -363,22 +364,31 @@
                     <div class="row" style="width:80%;">
                             <div class="card" 
                                 style="position:relative;width:100%;height:100%;margin-bottom:20px;text-align:justify;padding:20px;">
-                                <p style="font-weight:bold;font-size:25px;margin-top:30px;color:#303030;"><i
-                                        class="bi bi-calendar-check"></i> &nbspMy story starts here ...</p>
-                                <p style="font-weight:bold;font-size:21px;color:#BF9456;">{{$story->title}}
+                                <p style="font-weight:bold;font-size:35px;color:#303030;"><i
+                                        class="bi bi-brush"></i> &nbsp;{{$story->title}}
                                 </p>
+       
+                         
                                 <p>{{$story->description}}</p>
-                                <p style="font-weight:bold;font-size:25px;margin-top:30px;color:#303030;"><i
+                                <!-- <p style="font-weight:bold;font-size:25px;margin-top:30px;color:#303030;"><i
                                         class="bi bi-brush"></i> &nbsp Before my story ends. I have quote maybe can
-                                    inspire you ...</p>
-                                <img src="{{asset('res/newimage/sunset.jpeg')}}"
-                                    style="margin-right:20px;width:150px;height:150px;border:15px solid white;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                                    inspire you ...</p> -->
+                                    <?php $myasset =  asset('gambarstory/'.$story->quotes);?>
+                                    <img src="<?= $myasset?>"
+                                    style="margin-right:20px;width:300px;height:300px;border:15px solid white;box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
                                     <p style="font-weight:bold;font-size:25px;margin-top:30px;color:#303030;"><i
                                         class="bi bi-chat-dots"></i> &nbsp Comments . . .</p>
                                 <div> 
-                                    @foreach($comments as $c)
+                                    <?php
+                                    if(isset($comments)){
+?>
+           @foreach($comments as $c)
                                        <div class = "row" style = "box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;margin-left:10px;;margin-right:10px;"><div style = 'font-weight:bold;padding-left:10px !important; padding-top:10px;'>       {{ date('d F Y', strtotime($c->created_at))}}</div> <div style = "width:100%;padding:10px;"> {{$c->comment}}</div></div><br>
                                     @endforeach
+<?php
+                                    }
+                                    ?>
+                         
                                 </div>
                             </div>
                         </div>

@@ -19,8 +19,53 @@ class storycontroller extends Controller
     {
 
         $allstory = Story::orderBy('id', 'desc')->paginate(9);
+        $kota = DB::select("select distinct city from story");
+        $negara = DB::select("select distinct country from story");
+        return view('storylist', compact('allstory', 'kota', 'negara') );
+    }
+    public function filterstory(Request $request)
+    {
+        // $allstory = DB::table("story");
+        $searchquery ="";
+        $tahun = $request->pilihantahun;
+        $kota = $request->pilihankota;
+        $jumlahstring = 0;
+        $wherestring = " where ";
+        if($tahun == "nofilter"){
+            $tahun ="";
+        }
+  
+  
+        if($kota == "nofilter"){
+            $kota ="";
+        }
+       
+        $negara = $request->pilihannegara;
+        if($negara == "nofilter"){
+            $negara ="";
+        }
+    
+        if($jumlahstring == 0)
+        {
+            $wherestring = "  ";
+        }
+   
+        
+      
+        // $allstory = DB::select("select * from story ".$wherestring.substr($searchquery, 0, -3));
+        $allstory = DB::table("story")->whereYear('created_at','LIKE',"%$tahun%")->where('city','LIKE',"%$kota%")->where('country','LIKE',"%$negara%")->paginate(9);
 
-        return view('storylist', compact('allstory'));
+        // $allstory->paginate(9);
+        $kota = DB::select("select distinct city from story");
+        $negara = DB::select("select distinct country from story");
+        if ($request->ajax()) {
+            return view('storylistajax', compact('allstory', 'kota', 'negara'))->render();  
+        }
+        return view('storylist', compact('allstory', 'kota', 'negara') );
+    }
+    public function indexmain(){
+        $allstory = Story::orderBy('id', 'desc')->limit(3)->get();
+        return view('index', compact('allstory'));
     }
     public function addcommment(){
         $story = Story::find(2);
